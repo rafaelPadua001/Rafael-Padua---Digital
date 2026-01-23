@@ -179,7 +179,15 @@
         <div class="container">
             <h2>Quer um projeto para o seu negócio?</h2>
             <p>Fale comigo e veja a melhor solução.</p>
-            <a href="https://wa.me/556191865680" class="btn-primary">Chamar no WhatsApp</a>
+            <a href="https://wa.me/556191865680"
+   class="btn-primary"
+   onclick="gtag('event', 'click_whatsapp', {
+     event_category: 'engajamento',
+     event_label: 'botao_whatsapp_pagina_principal'
+   });">
+   Chamar no WhatsApp
+            </a>
+            
         </div>
     </section>
 
