@@ -21,6 +21,16 @@
     <link rel="icon" href="./assets/logo/logo.png" sizes="32x32" type="image/png">
     <link rel="icon" href="./assets/logo/logo.png" sizes="16x16" type="image/png">
     <script src="./javascript/scripts.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H1E187F4M6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H1E187F4M6');
+</script>
 </head>
 
 <body>
@@ -185,7 +195,15 @@
         <div class="container">
             <h2>Quer um projeto para o seu negócio?</h2>
             <p>Fale comigo e veja a melhor solução.</p>
-            <a href="https://wa.me/556191865680" class="btn-primary">Chamar no WhatsApp</a>
+            <a href="https://wa.me/556191865680"
+   class="btn-primary"
+   onclick="gtag('event', 'click_whatsapp', {
+     event_category: 'engajamento',
+     event_label: 'botao_whatsapp_pagina_principal'
+   });">
+   Chamar no WhatsApp
+            </a>
+            
         </div>
     </section>
 
