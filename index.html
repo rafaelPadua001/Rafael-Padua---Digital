@@ -36,22 +36,7 @@
 
     <!-- Google tag (gtag.js) -->
     <script defer src="https://www.googletagmanager.com/gtag/js?id=G-H1E187F4M6"></script>
-    <script defer>
-        window.addEventListener('load', () => {
-            if (window.gtagLoaded) return;
-            window.gtagLoaded = true;
 
-            const s = document.createElement('script');
-            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-H1E187F4M6';
-            s.async = true;
-            document.head.appendChild(s);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-H1E187F4M6');
-        });
-    </script>
 </head>
 
 <body>
@@ -251,6 +236,23 @@
     <footer class="footer">
         © 2026 – Landing Pages para Negócios Locais
     </footer>
+
+    <script defer>
+        window.addEventListener('load', () => {
+            if (window.gtagLoaded) return;
+            window.gtagLoaded = true;
+
+            const s = document.createElement('script');
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-H1E187F4M6';
+            s.async = true;
+            document.head.appendChild(s);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-H1E187F4M6');
+        });
+    </script>
 
 </body>
 
