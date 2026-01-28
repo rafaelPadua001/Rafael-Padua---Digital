@@ -35,7 +35,7 @@
     <!-- <script src="./javascript/scripts.js"></script> -->
 
     <!-- Google tag (gtag.js) -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-H1E187F4M6"></script>
+   
 
 </head>
 
@@ -238,20 +238,29 @@
     </footer>
 
     <script defer>
-        window.addEventListener('load', () => {
-            if (window.gtagLoaded) return;
-            window.gtagLoaded = true;
+          let gtagLoaded = false;
 
-            const s = document.createElement('script');
-            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-H1E187F4M6';
-            s.async = true;
-            document.head.appendChild(s);
+  function loadGtag() {
+    if (gtagLoaded) return;
+    gtagLoaded = true;
 
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-H1E187F4M6');
-        });
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-H1E187F4M6';
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', 'G-H1E187F4M6');
+  }
+
+  // Dispara ao primeiro sinal de interesse real
+  ['click', 'scroll', 'touchstart'].forEach(event => {
+    window.addEventListener(event, loadGtag, { once: true });
+  });
     </script>
 
 </body>
