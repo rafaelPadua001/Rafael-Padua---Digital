@@ -93,16 +93,10 @@ body {
 
 /* HERO (LIGHT FLOW) */
 .hero {
-    min-height: 70vh;
+    
     padding: 120px 0;
-    background: linear-gradient(65deg,
-            #ffffff,
-            #f1f1f1,
-            #cecdcd,
-            #09002c);
-    background-size: 200% 200%;
-    animation: lightFlow 20s ease-in-out infinite;
-    will-change: background-position;
+    background: linear-gradient(65deg, #ffffff, #f1f1f1, #cecdcd, #09002c);
+    
 }
 
 @keyframes lightFlow {
