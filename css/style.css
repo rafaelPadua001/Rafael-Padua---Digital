@@ -27,7 +27,7 @@ body {
 @font-face {
     font-family: 'Inter';
     src: url('../assets/fonts/inter-v20-latin-regular.woff2') format('woff2');
-    font-weight: 600;
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
@@ -93,27 +93,49 @@ body {
 
 /* HERO (LIGHT FLOW) */
 .hero {
-
+    position: relative;
     padding: 120px 0;
-    background: linear-gradient(65deg, #ffffff, #f1f1f1, #cecdcd, #09002c);
+    min-height: 100vh;
+    overflow: hidden;
+    background: #f1f1f1;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background: linear-gradient(
+        65deg,
+        #ffffff,
+        #f1f1f1,
+        #cecdcd,
+        #09002c
+    );
     background-size: 200% 200%;
-    animation: lightFlow 20s ease-in-out infinite;
-    will-change: background-position;
+    animation: lightFlowTransform 25s linear infinite;
+    transform-origin: center;
+    will-change: transform;
+    z-index: 0;
 }
 
-@keyframes lightFlow {
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+@keyframes lightFlowTransform {
     0% {
-        background-position: 0% 50%;
+        transform: translateX(0) scale(1);
     }
-
     50% {
-        background-position: 100% 50%;
+        transform: translateX(-5%) scale(1.05);
     }
-
     100% {
-        background-position: 0% 50%;
+        transform: translateX(0) scale(1);
     }
 }
+
 
 .hero h1 {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -121,6 +143,7 @@ body {
     font-weight: 600;
     line-height: 1.15;
     min-height: 3.6em;
+    contain: layout paint;
 }
 
 
@@ -388,7 +411,7 @@ body {
 
 @media (max-width: 768px) {
     .hero {
-        min-height: 85vh;
+         min-height: clamp(520px, 100vh, 900px);
     }
 
     .hero h1 {
