@@ -10,23 +10,24 @@
     <meta name="description"
         content="Sites rápidos e focados em conversão para estúdios, barbearias e negócios locais. Aumente seus clientes com landing pages profissionais." />
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
 
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preload" href="./css/style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="./css/style.css">
+    </noscript>
+
     <link rel="icon" href="./assets/logo/logo.webp" type="image/webp">
     <link rel="icon" href="./assets/logo/logo.webp" sizes="32x32" type="image/webp">
     <link rel="icon" href="./assets/logo/logo.webp" sizes="16x16" type="image/webp">
     <!-- <script src="./javascript/scripts.js"></script> -->
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1E187F4M6"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-H1E187F4M6"></script>
     <script defer>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -221,10 +222,10 @@
         <div class="container">
             <h2>Quer um projeto para o seu negócio?</h2>
             <p>Fale comigo e veja a melhor solução.</p>
-            <a href="https://wa.me/556191865680" class="btn-primary" onclick="gtag('event', 'click_whatsapp', {
-     event_category: 'engajamento',
-     event_label: 'botao_whatsapp_pagina_principal'
-   });">
+            <a href="https://wa.me/556191865680" class="btn-primary" onclick="window.gtag && gtag('event', 'click_whatsapp', {
+  event_category: 'engajamento',
+  event_label: 'botao_whatsapp_pagina_principal'
+});">
                 Chamar no WhatsApp
             </a>
 

@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background: #f9fafb;
     color: #111827;
     line-height: 1.6;
@@ -21,6 +21,23 @@ body {
     --primary: #111827;
     --muted: #6b7280;
     --border: #e5e7eb;
+}
+
+/* Fonts */
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/inter-v20-latin-regular.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../assets/fonts/playfair-display-v40-latin-regular.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
 }
 
 /* CONTAINER */
@@ -101,7 +118,7 @@ body {
 }
 
 .hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     font-size: 3rem;
     margin-bottom: 20px;
 }
@@ -148,6 +165,7 @@ body {
 }
 
 .projects h2 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     text-align: center;
     font-size: 1.3rem;
 }
