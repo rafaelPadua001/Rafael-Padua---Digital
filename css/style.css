@@ -204,8 +204,13 @@ body {
 
 .project-preview {
     position: relative;
+    width: 100%;
     height: 220px;
     overflow: hidden;
+    display: block;
+    border-radius: 8px;
+    aspect-ratio: 16 / 9;
+
 }
 
 .project-preview img {
