@@ -1,4 +1,10 @@
 /* RESET */
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/inter-v20-latin-regular.woff2') format('woff2');
+  font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
