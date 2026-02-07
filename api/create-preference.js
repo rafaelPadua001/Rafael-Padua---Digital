@@ -44,6 +44,11 @@ const priceByDemo = {
 };
 
 const demoMap = {
+  advocacia: 'advocacia',
+  botox: 'clinica-botox',
+  harmonizacao: 'clinica-harmonizacao',
+  consorcio: 'consorcio',
+  ecommerce: 'ecommerce',
   pizzaria: 'pizzaria',
   pizza: 'pizzaria',
   barbearia: 'barbearia',
