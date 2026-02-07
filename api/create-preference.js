@@ -37,14 +37,18 @@ module.exports = async (req, res) => {
   }
 
   const payload = await readJsonBody(req);
-  const priceByDemo = {
-  pizzaria: 497,
-  barbearia: 397,
-  tattoo: 447,
+const demoMap = {
+  pizzaria: 'pizzaria',
+  pizza: 'pizzaria',
+  barbearia: 'barbearia',
+  barber: 'barbearia',
+  tattoo: 'tattoo',
+  tatuagem: 'tattoo',
 };
 
-const demoKey = String(payload.demo || '').toLowerCase();
-const unitPrice = Number(priceByDemo[demoKey]);
+const rawDemo = String(payload.demo || '').toLowerCase();
+const demoKey = demoMap[rawDemo];
+const unitPrice = priceByDemo[demoKey];
 
 if (!unitPrice || isNaN(unitPrice) || unitPrice <= 0) {
   res.status(400).json({
