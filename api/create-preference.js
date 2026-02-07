@@ -37,18 +37,33 @@ module.exports = async (req, res) => {
   }
 
   const payload = await readJsonBody(req);
+  const priceByDemo = {
+  pizzaria: 497,
+  barbearia: 397,
+  tattoo: 447,
+};
 
-  const items =
-    Array.isArray(payload.items) && payload.items.length > 0
-      ? payload.items
-      : [
-          {
-            title: payload.title || 'Pedido',
-            quantity: Number(payload.quantity || 1),
-            unit_price: Number(payload.unit_price || payload.amount || 0),
-            currency_id: payload.currency_id || 'BRL',
-          },
-        ];
+const demoKey = String(payload.demo || '').toLowerCase();
+const unitPrice = Number(priceByDemo[demoKey]);
+
+if (!unitPrice || isNaN(unitPrice) || unitPrice <= 0) {
+  res.status(400).json({
+    error: 'Invalid demo or price',
+    received_demo: payload.demo,
+  });
+  return;
+}
+
+
+  const items = [
+  {
+    title: payload.title || 'Landing Page Profissional',
+    quantity: 1,
+    unit_price: Number(unitPrice.toFixed(2)),
+    currency_id: 'BRL',
+  },
+];
+
 
   const baseUrl = getBaseUrl(req);
   const notificationUrl = baseUrl
