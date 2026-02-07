@@ -4,18 +4,25 @@ document.addEventListener('click', async (event) => {
 
   event.preventDefault();
 
+  const demo = button.dataset.demo;
+  const title = button.dataset.title;
+
+  if (!demo) {
+    alert('Erro: demo não identificada.');
+    return;
+  }
+
   try {
     const response = await fetch('/api/create-preference', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    demo: 'pizzaria', // 🔥 OBRIGATÓRIO
-    title: 'Landing Page para Pizzaria',
-  }),
-});
-
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        demo,
+        title,
+      }),
+    });
 
     const data = await response.json();
 
