@@ -6,8 +6,16 @@ document.addEventListener('click', async (event) => {
 
   try {
     const response = await fetch('/api/create-preference', {
-      method: 'POST'
-    });
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    demo: 'pizzaria', // 🔥 OBRIGATÓRIO
+    title: 'Landing Page para Pizzaria',
+  }),
+});
+
 
     const data = await response.json();
 
