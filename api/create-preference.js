@@ -37,6 +37,12 @@ module.exports = async (req, res) => {
   }
 
   const payload = await readJsonBody(req);
+const priceByDemo = {
+  pizzaria: 497,
+  barbearia: 397,
+  tattoo: 447,
+};
+
 const demoMap = {
   pizzaria: 'pizzaria',
   pizza: 'pizzaria',
