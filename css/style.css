@@ -337,7 +337,7 @@ body {
 
 .performance {
     padding: 80px 24px;
-    background: #01023a;
+    background: linear-gradient(135deg, #000039 0%, #000039 60%, #000039 200%);
     color: #fcfbfb;
 }
 
