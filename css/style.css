@@ -328,6 +328,64 @@ body {
     padding: 20px;
 }
 
+/* DEMO PAGES */
+.demo-page {
+    --demo-preview-height: 280px;
+}
+
+.demo-page .projects {
+    padding-top: 48px;
+}
+
+.demo-page .project-preview {
+    height: var(--demo-preview-height);
+    aspect-ratio: auto;
+}
+
+.demo-page .project-preview img {
+    height: auto;
+    transform: translateY(0);
+    transition: transform 6s ease;
+}
+
+.demo-page .project-card:hover .project-preview img {
+    transform: translateY(calc(-100% + var(--demo-preview-height)));
+}
+
+
+@media (min-width: 900px) {
+    .demo-page {
+        --demo-preview-height: 380px;
+    }
+
+    .demo-page .project-card {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: stretch;
+    }
+
+    .demo-page .project-preview {
+        height: var(--demo-preview-height);
+        min-height: var(--demo-preview-height);
+        border-radius: 0;
+    }
+
+    .demo-page .project-preview img {
+        height: auto;
+    }
+
+    .demo-page .card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .demo-page .card-content .btn-primary,
+    .demo-page .card-content .btn-secondary {
+        align-self: flex-start;
+    }
+}
+
 .card-content p {
     display: -webkit-box;
     -webkit-line-clamp: 2;
