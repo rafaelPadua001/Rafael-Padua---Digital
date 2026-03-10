@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://paduastudiodigital.vercel.app/sitemap.xml

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -6,14 +6,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light dark">
 
-  <title>Landing Page Profissional para Pizzarias | Pádua Studio Digital</title>
-  <meta name="description"
-    content="Landing page profissional para pizzarias, focada em pedidos online, WhatsApp e conversão local." />
-
+  <title>Sistema para Pizzaria com Cardápio Online e Pedidos Automáticos | Pádua Studio Digital</title>
+  <meta name="description" content="Sistema para pizzaria com cardápio digital, pedidos online e atendimento por WhatsApp para aumentar vendas locais." />
+  <meta property="og:title" content="Sistema para Pizzaria com Cardápio Online e Pedidos Automáticos | Pádua Studio Digital" />
+  <meta property="og:description" content="Sistema para pizzaria com cardápio digital, pedidos online e atendimento por WhatsApp para aumentar vendas locais." />
+  <meta property="og:image" content="https://paduastudiodigital.vercel.app/assets/prints/pizzaria-demo-self.vercel.app_.webp" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://paduastudiodigital.vercel.app/demos/pizzaria.html" />
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="../assets/logo/logo.webp" type="image/webp">
-</head>
+  <script type="application/ld+json">
+[
+    {
+        "areaServed":  "Brasil",
+        "name":  "Sistema para Pizzaria que gera pedidos pelo WhatsApp",
+        "@context":  "https://schema.org",
+        "provider":  {
+                         "name":  "Padua Studio Digital",
+                         "@type":  "Organization"
+                     },
+        "serviceType":  "Criação de sites para negócios locais",
+        "@type":  "Service"
+    },
+    {
+        "@context":  "https://schema.org",
+        "itemListElement":  [
+                                {
+                                    "position":  1,
+                                    "name":  "Home",
+                                    "item":  "https://paduastudiodigital.vercel.app/",
+                                    "@type":  "ListItem"
+                                },
+                                {
+                                    "position":  2,
+                                    "name":  "Demonstrações",
+                                    "item":  "https://paduastudiodigital.vercel.app/#projetos",
+                                    "@type":  "ListItem"
+                                },
+                                {
+                                    "position":  3,
+                                    "name":  "Sistema para Pizzaria",
+                                    "item":  "https://paduastudiodigital.vercel.app/demos/pizzaria.html",
+                                    "@type":  "ListItem"
+                                }
+                            ],
+        "@type":  "BreadcrumbList"
+    }
+]
+  </script></head>
 
 <body class="demo-page" data-demo="pizzaria">
   <header class="header">
@@ -31,47 +72,217 @@
     </div>
   </header>
 
+  <nav class="demo-breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="/index.html">Home</a>
+      <span>&rsaquo;</span>
+      <a href="/#projetos">Demonstrações</a>
+      <span>&rsaquo;</span>
+      <span aria-current="page">Sistema para Pizzaria</span>
+    </div>
+  </nav>
   <main>
-    <section class="projects">
+    <!-- DEMO HERO -->
+    <section class="demo-hero">
+      <div class="container">
+        <h1>Sistema para Pizzaria que gera pedidos pelo WhatsApp</h1>
+        <p>Landing page e sistema completo para pizzarias que querem vender mais sem depender de aplicativos de entrega.</p>
+        <a href="https://wa.me/556191865680?text=Ol%C3%A1%2C%20tenho%20uma%20pizzaria%20e%20quero%20um%20site%20com%20pedidos%20via%20WhatsApp." class="btn-primary">Solicitar demonstração</a>
+        <p>Solução criada para pizzarias que querem aumentar pedidos diretos e reduzir taxas de marketplaces.</p>
+      </div>
+    </section>
+
+    <!-- DEMO DEMONSTRAÇÃO -->
+    <section class="projects demo-showcase">
       <div class="container">
         <div class="text-divider">
-          <h2>Detalhes da demo</h2>
+          <h2>Veja como funciona na prática</h2>
         </div>
-
+        <p>Exemplo de landing page e sistema criado para pizzarias.</p>
         <article class="project-card">
           <div class="project-preview">
-            <img src="../assets/prints/pizzaria-demo-self.vercel.app_.webp"
-              alt="Landing page para pizzaria com pedidos online" width="600" height="380" decoding="async"
-              loading="lazy" />
+            <img src="../assets/prints/pizzaria-demo-self.vercel.app_.webp" alt="Landing page para pizzaria com pedidos online" width="600" height="380" decoding="async" loading="lazy" />
           </div>
-
           <div class="card-content">
-            <h1>Landing Page Profissional para Pizzarias</h1>
-            <p>Landing page para pizzarias com foco em pedidos online, WhatsApp e conversão de clientes locais.</p>
-
+            <h3>Landing Page Profissional para Pizzarias</h3>
+            <p>Uma landing page profissional focada em pedidos online e contato direto via WhatsApp.</p>
             <ul class="project-features">
-              <li>Cardápio digital organizado e fácil de navegar.</li>
-              <li>Fluxo de pedido simples com foco em conversão.</li>
-              <li>CTA direto para atendimento via WhatsApp.</li>
-              <li>Otimizada para mobile e carregamento rápido.</li>
+              <li>Cardápio digital organizado e fácil de navegar</li>
+              <li>Fluxo de pedido simples com foco em conversão</li>
+              <li>CTA direto para atendimento via WhatsApp</li>
+              <li>Otimizada para mobile e carregamento rápido</li>
             </ul>
-
             <p><strong>Preço:</strong> R$ 890</p>
-
             <button class="btn-primary buy-button" data-demo="pizzaria" data-title="Landing Page para Pizzaria">Comprar agora</button>
             <a href="/index.html" class="btn-secondary">Voltar para a home</a>
           </div>
         </article>
       </div>
     </section>
-  </main>
+
+    <!-- DEMO BENEFÍCIOS -->
+    <section class="demo-benefits">
+      <div class="container">
+        <div class="text-divider">
+          <h2>Benefícios</h2>
+        </div>
+        <ul class="demo-benefits-list">
+          <li>Cardápio digital fácil de atualizar</li>
+          <li>Pedidos diretos pelo WhatsApp</li>
+          <li>Estrutura otimizada para conversão</li>
+          <li>Site rápido e mobile friendly</li>
+          <li>Pronto para aparecer no Google</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DEMO SISTEMA PIZZARIA -->
+    <section class="demo-system">
+      <div class="container">
+        <div class="text-divider">
+          <h2>Sistema completo para pizzarias</h2>
+        </div>
+        <p>Para pizzarias que querem automatizar pedidos e ter mais controle sobre o atendimento, oferecemos um sistema completo de pedidos online.</p>
+        <ul class="demo-system-list">
+          <li>Cardápio digital organizado</li>
+          <li>Carrinho de compras</li>
+          <li>Pedidos automáticos</li>
+          <li>Painel administrativo</li>
+          <li>Gestão de pedidos</li>
+          <li>Integração com WhatsApp</li>
+        </ul>
+        <p>Ideal para pizzarias que querem vender mais sem depender de aplicativos de delivery.</p>
+        <a href="https://wa.me/556191865680?text=Ol%C3%A1%2C%20quero%20uma%20demonstra%C3%A7%C3%A3o%20do%20sistema%20completo%20para%20pizzarias." class="btn-primary">Solicitar demonstração do sistema</a>
+      </div>
+    </section>
+
+    <!-- DEMO SOBRE A SOLUÇÃO -->
+    <section class="demo-benefits demo-about">
+      <div class="container">
+        <div class="text-divider">
+          <h2>Landing Page Profissional para Pizzarias</h2>
+        </div>
+        <p>Uma landing page profissional focada em pedidos online e contato direto via WhatsApp. Ideal para pizzarias que querem aumentar pedidos diretos na região.</p>
+        <ul class="demo-benefits-list">
+          <li>Cardápio digital organizado</li>
+          <li>Fluxo de pedido simples</li>
+          <li>CTA direto para WhatsApp</li>
+          <li>Otimizada para mobile</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DEMO PLANOS -->
+    <section class="demo-benefits demo-pricing">
+      <div class="container">
+        <div class="text-divider">
+          <h2>Planos para pizzarias</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="card-content">
+              <h3>Landing Page para Pizzaria</h3>
+              <p><strong>Setup:</strong> R$ 890</p>
+              <ul class="demo-benefits-list">
+                <li>Landing page profissional</li>
+                <li>Cardápio digital</li>
+                <li>Botão WhatsApp</li>
+                <li>SEO local</li>
+              </ul>
+              <a href="https://wa.me/556191865680?text=Ol%C3%A1%2C%20quero%20uma%20landing%20page%20para%20minha%20pizzaria." class="btn-secondary">Solicitar landing page</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="card-content">
+              <h3>Sistema Completo para Pizzarias</h3>
+              <p><strong>Setup:</strong> R$ 1.490</p>
+              <p><strong>Mensalidade:</strong> a partir de R$ 197</p>
+              <ul class="demo-benefits-list">
+                <li>Sistema de pedidos online</li>
+                <li>Carrinho de compras</li>
+                <li>Painel administrativo</li>
+                <li>Gestão de pedidos</li>
+                <li>Integração WhatsApp</li>
+              </ul>
+              <a href="https://wa.me/556191865680?text=Ol%C3%A1%2C%20quero%20uma%20demonstra%C3%A7%C3%A3o%20do%20sistema%20completo%20para%20pizzarias." class="btn-primary">Solicitar demonstração</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO COMO FUNCIONA -->
+    <section class="demo-steps">
+      <div class="container">
+        <div class="text-divider">
+          <h2>Como funciona</h2>
+        </div>
+        <ol class="demo-steps-list">
+          <li><span>1</span> Escolha o modelo ideal para sua pizzaria</li>
+          <li><span>2</span> Personalizamos com suas informações</li>
+          <li><span>3</span> Seu site começa a receber pedidos</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- DEMO PROVA SOCIAL -->
+    <section class="demo-proof">
+      <div class="container">
+        <div class="text-divider">
+          <h2>Resultados reais</h2>
+        </div>
+        <blockquote class="demo-proof-quote">“Começamos a receber pedidos direto pelo WhatsApp e reduzimos a dependência de aplicativos.” — Pizzaria local</blockquote>
+      </div>
+    </section>
+
+    <!-- DEMO CTA -->
+    <section class="demo-cta">
+      <div class="container">
+        <h2>Pronto para vender mais pizzas todos os dias?</h2>
+        <p>Fale conosco no WhatsApp e veja como aplicar essa solução na sua pizzaria.</p>
+        <a href="https://wa.me/556191865680?text=Ol%C3%A1%2C%20tenho%20uma%20pizzaria%20e%20quero%20um%20site%20com%20pedidos%20via%20WhatsApp." class="cta-button">Falar no WhatsApp</a>
+      </div>
+    </section>
+
+    <!-- DEMO INTERLINKING -->
+    <section class="demo-links">
+      <div class="container">
+        <div class="text-divider">
+          <h2>Veja também soluções para outros negócios locais</h2>
+        </div>
+        <ul class="demo-links-list">
+          <li><a href="./demos/barbearia.html">Site para Barbearia</a></li>
+          <li><a href="./demos/clinica-botox.html">Landing Page para Clínica Estética</a></li>
+          <li><a href="./demos/consorcio.html">Landing Page para Consórcios</a></li>
+          <li><a href="./demos/tatuagem.html">Site para Estúdio de Tatuagem</a></li>
+          <li><a href="./demos/ecommerce.html">Site para E-commerce</a></li>
+        </ul>
+      </div>
+    </section>
+</main>
 
   <footer class="footer">
-    © 2026 – Landing Pages para Negócios Locais
+    &copy; 2026 &ndash; Landing Pages para Neg&oacute;cios Locais
   </footer>
 
   <script defer src="../javascript/scripts.js"></script>
   <script defer src="../javascript/buy.js"></script>
+<a class="whatsapp-float" href="https://wa.me/556191865680?text=Ol%C3%A1%2C%20vi%20o%20site%20do%20P%C3%A1dua%20Studio%20Digital%20e%20quero%20falar%20sobre%20um%20projeto.">WhatsApp</a>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

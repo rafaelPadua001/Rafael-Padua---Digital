@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://paduastudiodigital.vercel.app/</loc>
@@ -13,28 +13,51 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paduastudiodigital.vercel.app/demos/pizzaria.html</loc>
+    <loc>https://paduastudiodigital.vercel.app/demos/advocacia.html</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://paduastudiodigital.vercel.app/demos/clinica-botox.html</loc>
-    <lastmod>2026-03-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://paduastudiodigital.vercel.app/demos/barbearia.html</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://paduastudiodigital.vercel.app/demos/advocacia.html</loc>
+    <loc>https://paduastudiodigital.vercel.app/demos/clinica-botox.html</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
- 
+  <url>
+    <loc>https://paduastudiodigital.vercel.app/demos/clinica-harmonizacao.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paduastudiodigital.vercel.app/demos/consorcio.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paduastudiodigital.vercel.app/demos/ecommerce.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paduastudiodigital.vercel.app/demos/pizzaria.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paduastudiodigital.vercel.app/demos/tatuagem.html</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
