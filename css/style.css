@@ -387,6 +387,11 @@ body {
     height: 100%;
 }
 
+.social-card h3 {
+    font-size: 1.15rem;
+    line-height: 1.25;
+}
+
 .social-prints {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -614,13 +619,15 @@ body {
 }
 
 .niche-card h3 {
-    font-size: 1.1rem;
-    line-height: 1.2;
+    font-size: 1.15rem;
+    line-height: 1.25;
+    margin-bottom: 2px;
 }
 
 .niche-card p {
     color: var(--muted);
     line-height: 1.6;
+    margin-bottom: 2px;
 }
 
 .niche-card .btn-secondary {
