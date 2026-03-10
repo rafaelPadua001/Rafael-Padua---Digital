@@ -17,6 +17,46 @@
 
     <!-- CSS deve carregar imediatamente -->
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        #tech-stack {
+            padding: 60px 0;
+            background: #fff;
+            text-align: center;
+        }
+
+        #tech-stack .tech-logos {
+            display: grid;
+            grid-template-columns: repeat(7, auto);
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+            margin: 24px 0 28px;
+        }
+
+        #tech-stack .tech-logos img {
+            max-height: 40px;
+            width: auto;
+            display: block;
+            opacity: 0.8;
+            transition: opacity .2s ease;
+        }
+
+        #tech-stack .tech-logos img:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 900px) {
+            #tech-stack .tech-logos {
+                grid-template-columns: repeat(4, auto);
+            }
+        }
+
+        @media (max-width: 600px) {
+            #tech-stack .tech-logos {
+                grid-template-columns: repeat(2, auto);
+            }
+        }
+    </style>
 
     <link rel="icon" href="./assets/logo/logo.webp" type="image/webp">
 
@@ -99,64 +139,26 @@
         </g>
     </svg>
 
-    <!-- SOLUÇÕES PARA NEGÓCIOS LOCAIS -->
-    <section class="solutions">
-        <div class="container">
-            <div class="text-divider">
-                <h2>Soluções para negócios locais</h2>
+    <!-- PLATAFORMA PARA PIZZARIAS -->
+    <section class="pizzaria-highlight">
+        <div class="container highlight-grid">
+            <div class="highlight-content">
+                <div class="text-divider">
+                    <h2>Plataforma para Pizzarias com Pedidos Online</h2>
+                </div>
+                <p>Uma solução completa para pizzarias que querem receber pedidos diretos sem depender de aplicativos de delivery e suas taxas.</p>
+                <ul class="highlight-features">
+                    <li>Cardápio digital</li>
+                    <li>Carrinho de pedidos</li>
+                    <li>Integração com WhatsApp</li>
+                    <li>Painel administrativo</li>
+                    <li>Gestão de pedidos</li>
+                </ul>
+                <a href="./demos/pizzaria.html" class="btn-primary">Ver demonstração do sistema</a>
             </div>
-
-            <div class="solutions-grid">
-                <article class="solution-card">
-                    <h3>Landing pages de conversão</h3>
-                    <p>Páginas focadas em captar contatos rápidos e aumentar pedidos no WhatsApp.</p>
-                </article>
-
-                <article class="solution-card">
-                    <h3>Sites institucionais</h3>
-                    <p>Presença profissional para construir autoridade e aparecer nas buscas do Google.</p>
-                </article>
-
-                <article class="solution-card">
-                    <h3>Sistemas de pedidos online</h3>
-                    <p>Automação de pedidos, atendimento e vendas para reduzir dependência de marketplaces.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO DE PROBLEMA -->
-    <section class="value-section">
-        <div class="container">
-            <div class="text-divider">
-                <h2>Por que muitos negócios não recebem contatos?</h2>
-            </div>
-            <p>Sem uma presença digital estruturada, muitos negócios deixam oportunidades no caminho.</p>
-            <ul class="value-list">
-                <li>Dependência de redes sociais para gerar demanda</li>
-                <li>Falta de presença no Google quando o cliente pesquisa</li>
-                <li>Ausência de estrutura de conversão para transformar visitas em mensagens</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- DESTAQUE DO PRODUTO PRINCIPAL -->
-    <section class="solutions">
-        <div class="container">
-            <div class="text-divider">
-                <h2>Sistema completo para pizzarias</h2>
-            </div>
-            <div class="solutions-grid">
-                <article class="solution-card">
-                    <p>Solução completa para pizzarias com cardápio digital, pedidos online e atendimento integrado.</p>
-                    <ul class="project-features">
-                        <li>Cardápio digital</li>
-                        <li>Pedidos online</li>
-                        <li>Integração WhatsApp</li>
-                        <li>Painel administrativo</li>
-                    </ul>
-                    <a href="./demos/pizzaria.html" class="btn-primary">Ver demonstração</a>
-                </article>
+            <div class="highlight-media">
+                <img src="./assets/prints/pizzaria-demo-self.vercel.app_.webp" alt="Preview do sistema para pizzarias"
+                    width="560" height="360" loading="lazy" decoding="async" />
             </div>
         </div>
     </section>
@@ -202,53 +204,13 @@
         </div>
     </section>
 
-    <!-- NOSSAS SOLUÇÕES -->
-    <section class="solutions">
-        <div class="container">
-            <div class="text-divider">
-                <h2>Nossas Soluções</h2>
-            </div>
-
-            <div class="solutions-grid">
-                <article class="solution-card">
-                    <h3>Landing Pages</h3>
-                    <p>Sites para captação de clientes e SEO local, com foco em conversão.</p>
-                    <a href="#projetos" class="btn-secondary">Ver landing pages</a>
-                </article>
-
-                <article class="solution-card">
-                    <h3>Sistemas / SaaS</h3>
-                    <p>Automação de pedidos, atendimento e vendas com integrações e IA.</p>
-                    <a href="/plataforma-pizzaria-ia" class="btn-secondary">Ver plataforma de pizzaria</a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOLUÇÕES PARA NEGÓCIOS LOCAIS -->
-    <section class="local-solutions">
-        <div class="container">
-            <div class="text-divider">
-                <h2>Soluções para negócios locais</h2>
-            </div>
-            <ul class="local-solutions-list">
-                <li><a href="./demos/barbearia.html">Barbearias</a></li>
-                <li><a href="./demos/clinica-botox.html">Clínicas estéticas</a></li>
-                <li><a href="./demos/advocacia.html">Advocacia</a></li>
-                <li><a href="./demos/consorcio.html">Consórcios</a></li>
-                <li><a href="./demos/tatuagem.html">Tatuagem</a></li>
-                <li><a href="./demos/pizzaria.html">Restaurantes</a></li>
-                <li><a href="./demos/ecommerce.html">E-commerce</a></li>
-            </ul>
-        </div>
-    </section>
-
     <!-- PROJETOS -->
     <section id="projetos" class="projects">
         <div class="container">
             <div class="text-divider">
-                <h2>Projetos de landing pages e sites por nicho</h2>
+                <h2>Soluções de sites para negócios locais</h2>
             </div>
+            <p class="section-lead">Modelos de sites e landing pages criados para gerar contatos e clientes via Google e WhatsApp.</p>
 
             <br>
             <div class="project-grid">
@@ -438,119 +400,39 @@
         </div>
     </section>
 
-    <!-- PROVA SOCIAL -->
-    <section class="social-proof">
+    <!-- TECNOLOGIAS UTILIZADAS -->
+    <section id="tech-stack">
         <div class="container">
             <div class="text-divider">
-                <h2>Projetos criados para negócios locais</h2>
+                <h2>Tecnologias utilizadas nos nossos projetos</h2>
             </div>
-            <p>Modelos desenvolvidos para captar clientes pelo Google e converter visitas em contatos no WhatsApp.</p>
+            <p class="section-lead">
+                Utilizamos ferramentas modernas para criar sites rápidos, sistemas escaláveis e experiências digitais eficientes.
+            </p>
+
+            <div class="tech-logos">
+                <img src="./assets/logos/vercel.svg" alt="Vercel">
+                <img src="./assets/logos/render.svg" alt="Render">
+                <img src="./assets/logos/mercadopago.svg" alt="Mercado Pago">
+                <img src="./assets/logos/melhorenvio.svg" alt="Melhor Envio">
+                <img src="./assets/logos/fastapi.svg" alt="FastAPI">
+                <img src="./assets/logos/vue.svg" alt="Vue">
+                <img src="./assets/logos/supabase.svg" alt="Supabase">
+            </div>
+
+            <a href="/stack.html" class="btn-secondary">Ver nossa stack completa</a>
         </div>
     </section>
 
     <!-- CTA INTERMEDIÁRIO -->
     <section class="cta-mid">
         <div class="container">
-            <h2>Quer um site assim para seu negócio?</h2>
-            <p>Fale conosco no WhatsApp.</p>
+            <h2>Quer um site assim para o seu negócio?</h2>
+            <p>Criamos landing pages profissionais que geram contatos diretos pelo WhatsApp para negócios locais.</p>
             <a href="https://wa.me/556191865680?text=Ol%C3%A1%2C%20quero%20um%20site%20para%20meu%20neg%C3%B3cio%20e%20gostaria%20de%20uma%20demonstra%C3%A7%C3%A3o."
                 class="btn-primary">Falar no WhatsApp</a>
         </div>
     </section>
-
-
-    <!-- SEÇÃO VALOR -->
-    <section class="value-section">
-        <div class="container">
-            <div class="text-divider">
-                <h2>Por que nossos sites geram mais leads?</h2>
-            </div>
-            <ul class="value-list">
-                <li>Estrutura focada em conversão</li>
-                <li>SEO local</li>
-                <li>Integração WhatsApp</li>
-                <li>Performance rápida</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- PROVA SOCIAL -->
-    <!--<section class="social-proof">
-        <div class="container">
-            <div class="text-divider">
-                <h2>Prova Social</h2>
-            </div>
-
-            <div class="social-grid">
-                <article class="social-card">
-                    <h3>Prints de projetos</h3>
-                    <div class="social-prints">
-                        <img src="./assets/prints/advocacia-demo.vercel.app_.webp"
-                            alt="Print de site para advocacia" width="420" height="260" loading="lazy" />
-                        <img src="./assets/prints/barbershop-topaz-eight.vercel.app_.webp"
-                            alt="Print de landing page para barbearia" width="420" height="260" loading="lazy" />
-                        <img src="./assets/prints/pizzaria-demo-self.vercel.app_.webp"
-                            alt="Print de plataforma para pizzaria" width="420" height="260" loading="lazy" />
-                    </div>
-                </article>
-
-                <article class="social-card">
-                    <h3>Resultados / métricas</h3>
-                    <div class="social-metrics">
-                        <div class="metric-badge">
-                            <span class="metric-value">100</span>
-                            <span class="metric-label">Mobile</span>
-                        </div>
-                        <div class="metric-badge">
-                            <span class="metric-value">100</span>
-                            <span class="metric-label">Desktop</span>
-                        </div>
-                        <div class="metric-badge">
-                            <span class="metric-value">A+</span>
-                            <span class="metric-label">Core Web Vitals</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="social-card">
-                    <h3>Depoimentos</h3>
-                    <div class="testimonials">
-                        <blockquote>
-                            “Conseguimos mais pedidos em poucos dias. O WhatsApp começou a tocar sem parar.”
-                            <span>— Cliente de restaurante</span>
-                        </blockquote>
-                        <blockquote>
-                            “O site trouxe mais agendamentos e passou mais confiança para nossos pacientes.”
-                            <span>— Clínica estética</span>
-                        </blockquote>
-                        <blockquote>
-                            “A landing page deixou o atendimento mais organizado e aumentou os contatos.”
-                            <span>— Barbearia local</span>
-                        </blockquote>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section> -->
-
-    <!--
-    <section class="projects">
-        <div class="container">
-            <div class="text-divider">
-                <h2>Experiência prática (exemplos fictícios)</h2>
-            </div>
-            <p>Cases demonstrativos criados para ilustrar soluções para negócios locais e landing pages focadas em conversão.</p>
-        </div>
-    </section>
-    -->
-
-    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100">
-        <g fill="#000039">
-            <path d="M0 0v100c250 0 375-24 500-48 125 24 250 48 500 48V0H0Z" opacity=".5"></path>
-            <path d="M0 0v4c250 0 375 24 500 48C625 28 750 4 1000 4V0H0Z"></path>
-        </g>
-    </svg>
--->
     <section class="performance">
         <div class="performance-container">
             <h2>Performance que o Google aprova</h2>
@@ -596,21 +478,39 @@
 
             <div class="steps">
                 <div class="step">
-                    <span>1</span>
-                    <h4>Escolha o projeto</h4>
-                    <p>Selecione o layout ideal para seu negócio.</p>
+                    <div class="step-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                            <path d="M20 20l-3.5-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+                    </div>
+                    <span class="step-number">1</span>
+                    <h4>Escolha o modelo ideal para seu negócio</h4>
+                    <p>Selecione o layout que mais combina com sua operação.</p>
                 </div>
 
                 <div class="step">
-                    <span>2</span>
-                    <h4>Personalização</h4>
-                    <p>Ajustamos cores, textos e identidade visual.</p>
+                    <div class="step-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <path d="M4 20h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                            <path d="M6 16l9-9 3 3-9 9H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <span class="step-number">2</span>
+                    <h4>Personalizamos com suas informações</h4>
+                    <p>Aplicamos suas cores, textos e contatos.</p>
                 </div>
 
                 <div class="step">
-                    <span>3</span>
-                    <h4>Site no ar</h4>
-                    <p>Entrega rápida focada em conversão.</p>
+                    <div class="step-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <path d="M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                            <path d="M12 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <span class="step-number">3</span>
+                    <h4>Seu site começa a receber contatos</h4>
+                    <p>Ative o WhatsApp e capte novos clientes.</p>
                 </div>
             </div>
         </div>
@@ -620,12 +520,10 @@
     <section id="contato" class="cta">
         <div class="container">
             <h2>Pronto para ter um site que gera clientes todos os dias?</h2>
-            <p>Fale comigo e veja a melhor solução.</p>
+            <p>Fale conosco no WhatsApp e veja como aplicar essas soluções no seu negócio.</p>
             <div class="cta-actions">
                 <a href="https://wa.me/556191865680?text=Ol%C3%A1%2C%20vi%20o%20site%20do%20P%C3%A1dua%20Studio%20Digital%20e%20gostaria%20de%20entender%20como%20funciona%20a%20landing%20page."
-                    class="btn-primary">Solicitar Demonstração</a>
-                <a href="https://wa.me/556191865680?text=Ol%C3%A1%2C%20vi%20o%20site%20do%20P%C3%A1dua%20Studio%20Digital%20e%20gostaria%20de%20entender%20como%20funciona%20a%20landing%20page."
-                    class="btn-secondary" onclick="window.gtag && gtag('event', 'click_whatsapp', {
+                    class="btn-primary" onclick="window.gtag && gtag('event', 'click_whatsapp', {
   event_category: 'engajamento',
   event_label: 'botao_whatsapp_pagina_principal'
 });">
