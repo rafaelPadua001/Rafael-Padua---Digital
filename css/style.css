@@ -14,7 +14,23 @@ body {
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     background: #f9fafb;
     color: #111827;
-    line-height: 1.5;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4 {
+    line-height: 1.2;
+    margin: 0 0 0.6rem;
+}
+
+p {
+    margin: 0 0 0.75rem;
+}
+
+ul, ol {
+    margin: 0;
+    padding-left: 1.2rem;
 }
 
 /* VARIÁVEIS */
@@ -46,6 +62,10 @@ body {
     max-width: 1140px;
     margin: auto;
     padding: 0 20px;
+}
+
+section {
+    scroll-margin-top: 80px;
 }
 
 /* HEADER */
@@ -307,17 +327,30 @@ body {
 
 /* BOTÕES */
 .btn-primary {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: var(--primary);
     color: #fff;
     padding: 14px 28px;
     border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
+    border: 1px solid var(--primary);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.btn-primary:hover {
+    background: #0b0f1a;
+    border-color: #0b0f1a;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .btn-secondary {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 16px;
     padding: 12px 22px;
     border-radius: 10px;
@@ -339,6 +372,9 @@ body {
     padding: 80px 0;
 }
 
+.project-grid {
+    align-items: stretch;
+}
 .value-section {
     padding: 80px 0;
     background: #fff;
@@ -584,6 +620,7 @@ body {
     border-radius: 14px;
     padding: 14px 16px;
     font-weight: 600;
+    min-height: 60px;
 }
 
 .demo-steps-list {
@@ -630,13 +667,23 @@ body {
 }
 
 .cta-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: #fff;
     color: var(--primary);
     padding: 14px 28px;
     border-radius: 10px;
     text-decoration: none;
     font-weight: 700;
+    border: 1px solid #fff;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+
+.cta-button:hover {
+    background: #f3f4f6;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .demo-proof {
@@ -705,6 +752,7 @@ body {
     border-radius: 14px;
     padding: 14px 16px;
     font-weight: 600;
+    min-height: 60px;
 }
 
 .niche-solutions {
@@ -733,6 +781,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
     margin-top: 28px;
+    align-items: stretch;
 }
 
 .solution-card {
@@ -744,6 +793,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    height: 100%;
 }
 
 .solution-card h3 {
@@ -794,6 +844,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 24px;
     margin-top: 24px;
+    align-items: stretch;
 }
 
 .niche-card {
@@ -876,6 +927,9 @@ body {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, .04);
     transition: transform .3s ease, box-shadow .3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-card:hover {
@@ -893,6 +947,7 @@ body {
     --text-divider-gap: 0.5rem;
     display: flex;
     align-items: center;
+    margin-bottom: 16px;
 }
 
 .text-divider::before,
@@ -956,6 +1011,9 @@ body {
 
 .card-content {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 /* DEMO PAGES */
@@ -1187,14 +1245,18 @@ body {
     }
 
     .header-content {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        height: auto;
+        padding: 10px 0;
     }
 
     .logo {
         display: flex;
         align-items: center;
         height: 100%;
+        margin-left: 0;
     }
 
     .logo img {
@@ -1207,7 +1269,8 @@ body {
     .nav {
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 10px;
+        flex-wrap: wrap;
     }
 
     .nav a {
@@ -1226,6 +1289,11 @@ body {
         justify-content: center;
         padding: 0 10px;
     }
+
+    .hero-actions a {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 900px) {
@@ -1242,5 +1310,12 @@ body {
 
     .social-prints {
         grid-template-columns: 1fr;
+    }
+
+    .whatsapp-float {
+        right: 14px;
+        bottom: 14px;
+        padding: 10px 14px;
+        font-size: 0.9rem;
     }
 }
