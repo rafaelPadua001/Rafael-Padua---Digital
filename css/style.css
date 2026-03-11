@@ -396,6 +396,12 @@ section {
     max-width: 560px;
 }
 
+.highlight-note {
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 500;
+}
+
 .highlight-features {
     list-style: none;
     display: grid;
@@ -962,6 +968,22 @@ section {
     color: #111827;
     line-height: 1;
     white-space: nowrap;
+}
+
+.project-tags span:first-child {
+    border-color: var(--primary);
+    font-weight: 700;
+}
+
+.local-solutions p a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.local-solutions p a:hover {
+    text-decoration-color: var(--primary);
 }
 
 .projects h2 {
