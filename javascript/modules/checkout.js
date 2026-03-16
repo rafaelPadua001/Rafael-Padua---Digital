@@ -27,5 +27,8 @@
 
   window.PaduaCheckout = {
     createMercadoPagoPreference,
+    createPreference({ project, plan }) {
+      return createMercadoPagoPreference(plan, { slug: project });
+    },
   };
 })();

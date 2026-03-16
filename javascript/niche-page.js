@@ -66,7 +66,13 @@
   function renderDemoImage(project) {
     const image = window.PaduaProjects.resolveImage(project);
     if (!image) return '';
-    return `<img src="${image}" alt="Preview da demo" loading="lazy" decoding="async" />`;
+    return `
+      <div class="demo-preview-container">
+        <div class="demo-preview">
+          <img src="${image}" alt="Preview da demo" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    `;
   }
 
   function renderPlanButtons(project) {
