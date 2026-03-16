@@ -971,21 +971,9 @@ section {
     }
 }
 
-.plan-features {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 10px;
-}
-
-.plan-features li {
-    background: #f9fafb;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 10px 12px;
-    font-weight: 600;
+.plan-selector-wrap {
+    display: flex;
+    justify-content: center;
 }
 
 .demo-conversion-box h3 {
