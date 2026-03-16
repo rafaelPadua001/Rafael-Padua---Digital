@@ -79,10 +79,6 @@
     const plans = Array.isArray(project?.plans) ? project.plans : [];
     if (!plans.length) return '';
     return `
-      <div class="plan-header">
-        <span class="plan-badge"></span>
-        <h4 class="plan-title"></h4>
-      </div>
       <div class="plans-container"></div>
       <div class="plan-selector-wrap">
         <select class="plan-selector">
@@ -131,11 +127,11 @@
           setHtml('[data-project-pricing]', '');
           setHtml(
             '[data-project-plans]',
-            `${renderPlanSelector(project)}
-             <div class="pricing-info">
+            `<div class="pricing-info">
                <p class="pricing-setup"></p>
                <p class="pricing-monthly"></p>
              </div>
+             ${renderPlanSelector(project)}
              ${renderPlanButtons(project)}`
           );
         } else {
@@ -156,8 +152,6 @@
       document.body.classList.add('plans-ready');
 
       const selector = document.querySelector('.plan-selector');
-      const planTitle = document.querySelector('.plan-title');
-      const planBadge = document.querySelector('.plan-badge');
       const pricingSetup = document.querySelector('.pricing-setup');
       const pricingMonthly = document.querySelector('.pricing-monthly');
       const plansContainer = document.querySelector('.plans-container');
@@ -166,12 +160,6 @@
         const plans = Array.isArray(project?.plans) ? project.plans : [];
         const plan = plans.find((item) => item.id === planId) || plans[0] || null;
         if (!plan) return;
-
-        if (planTitle) planTitle.textContent = plan.name || project.name || '';
-        if (planBadge) {
-          planBadge.textContent = plan.badge || '';
-          planBadge.style.display = plan.badge ? 'inline-flex' : 'none';
-        }
 
         if (pricingSetup) {
           pricingSetup.textContent = `Setup: R$ ${plan.setup}`;
