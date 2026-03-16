@@ -83,10 +83,12 @@
         <span class="plan-badge"></span>
         <h4 class="plan-title"></h4>
       </div>
-      <select class="plan-selector">
-        ${plans.map((plan) => `<option value="${plan.id}">${plan.name}</option>`).join('')}
-      </select>
       <div class="plans-container"></div>
+      <div class="plan-selector-wrap">
+        <select class="plan-selector">
+          ${plans.map((plan) => `<option value="${plan.id}">${plan.name}</option>`).join('')}
+        </select>
+      </div>
     `;
   }
 
@@ -134,8 +136,7 @@
                <p class="pricing-setup"></p>
                <p class="pricing-monthly"></p>
              </div>
-             ${renderPlanButtons(project)}
-             <ul class="plan-features"></ul>`
+             ${renderPlanButtons(project)}`
           );
         } else {
           setHtml('[data-project-pricing]', renderPricing(project));
@@ -157,7 +158,6 @@
       const selector = document.querySelector('.plan-selector');
       const planTitle = document.querySelector('.plan-title');
       const planBadge = document.querySelector('.plan-badge');
-      const planFeatures = document.querySelector('.plan-features');
       const pricingSetup = document.querySelector('.pricing-setup');
       const pricingMonthly = document.querySelector('.pricing-monthly');
       const plansContainer = document.querySelector('.plans-container');
@@ -187,15 +187,6 @@
           }
         }
 
-        if (planFeatures) {
-          planFeatures.innerHTML = '';
-          (plan.features || []).forEach((feature) => {
-            const li = document.createElement('li');
-            li.textContent = feature;
-            planFeatures.appendChild(li);
-          });
-          planFeatures.style.display = plan.features?.length ? '' : 'none';
-        }
 
         if (plansContainer) {
           plansContainer.querySelectorAll('.plan-card').forEach((card) => {
@@ -215,9 +206,6 @@
             <h3>${plan.name}</h3>
             <p class="plan-setup">Setup: R$ ${plan.setup}</p>
             <p class="plan-monthly">${plan.monthly ? `Mensalidade: R$ ${plan.monthly}` : 'Mensalidade: Sem mensalidade'}</p>
-            <ul class="plan-features">
-              ${(plan.features || []).map((feature) => `<li>${feature}</li>`).join('')}
-            </ul>
             <button class="plan-cta" type="button">Solicitar demonstracao</button>
           `;
           plansContainer.appendChild(card);

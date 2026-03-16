@@ -41,8 +41,10 @@
               <span class="plan-badge"></span>
               <h4 class="plan-title"></h4>
             </div>
-            <select class="plan-selector"></select>
             <div class="plans-container"></div>
+            <div class="plan-selector-wrap">
+              <select class="plan-selector"></select>
+            </div>
             <div class="pricing-info">
               <p class="pricing-setup"></p>
               <p class="pricing-monthly"></p>
@@ -85,9 +87,6 @@
         <h3>${plan.name}</h3>
         <p class="plan-setup">Setup: R$ ${plan.setup}</p>
         <p class="plan-monthly">${plan.monthly ? `Mensalidade: R$ ${plan.monthly}` : 'Mensalidade: Sem mensalidade'}</p>
-        <ul class="plan-features">
-          ${(plan.features || []).map((feature) => `<li>${feature}</li>`).join('')}
-        </ul>
         <button class="plan-cta" type="button">Solicitar demonstracao</button>
       `;
       if (index === 0) card.classList.add('selected');
