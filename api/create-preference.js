@@ -13,6 +13,30 @@ async function readJsonBody(req) {
   }
 }
 
+const fs = require('fs');
+const path = require('path');
+
+let cachedProjects = null;
+
+function loadProjectsData() {
+  if (cachedProjects) return cachedProjects;
+  try {
+    const filePath = path.join(process.cwd(), 'data', 'projects.json');
+    const raw = fs.readFileSync(filePath, 'utf8');
+    cachedProjects = JSON.parse(raw);
+  } catch {
+    cachedProjects = [];
+  }
+  return cachedProjects;
+}
+
+function resolveProjectByDemo(demo) {
+  const projects = loadProjectsData();
+  if (!Array.isArray(projects)) return null;
+  const target = String(demo || '').toLowerCase();
+  return projects.find((project) => String(project.slug).toLowerCase() === target) || null;
+}
+
 function getBaseUrl(req) {
   if (process.env.BASE_URL) return process.env.BASE_URL;
   if (process.env.WEBHOOK_BASE_URL) return process.env.WEBHOOK_BASE_URL;
@@ -37,57 +61,48 @@ module.exports = async (req, res) => {
   }
 
   const payload = await readJsonBody(req);
-const priceByDemo = {
-  pizzaria: 497,
-  barbearia: 397,
-  tattoo: 447,
-};
+  const project = resolveProjectByDemo(payload.demo);
+  const unitPrice = project?.pricing?.setup_price;
 
-const demoMap = {
-  advocacia: 'advocacia',
-  botox: 'clinica-botox',
-  harmonizacao: 'clinica-harmonizacao',
-  consorcio: 'consorcio',
-  ecommerce: 'ecommerce',
-  pizzaria: 'pizzaria',
-  pizza: 'pizzaria',
-  barbearia: 'barbearia',
-  barber: 'barbearia',
-  tattoo: 'tattoo',
-  tatuagem: 'tattoo',
-};
-
-const rawDemo = String(payload.demo || '').toLowerCase();
-const demoKey = demoMap[rawDemo];
-const unitPrice = priceByDemo[demoKey];
-
-if (!unitPrice || isNaN(unitPrice) || unitPrice <= 0) {
-  res.status(400).json({
-    error: 'Invalid demo or price',
-    received_demo: payload.demo,
-  });
-  return;
-}
-
+  if (!project || !unitPrice || isNaN(unitPrice) || unitPrice <= 0) {
+    res.status(400).json({
+      error: 'Invalid demo or price',
+      received_demo: payload.demo,
+    });
+    return;
+  }
 
   const items = [
-  {
-    title: payload.title || 'Landing Page Profissional',
-    quantity: 1,
-    unit_price: Number(unitPrice.toFixed(2)),
-    currency_id: 'BRL',
-  },
-];
+    {
+      title: payload.title || project.name || 'Landing Page Profissional',
+      quantity: 1,
+      unit_price: Number(Number(unitPrice).toFixed(2)),
+      currency_id: 'BRL',
+    },
+  ];
 
 
   const baseUrl = getBaseUrl(req);
   const notificationUrl = baseUrl
-    ? `${baseUrl}/api/webhook`
+    ? `${baseUrl}/api/payments-webhook`
     : undefined;
 
   const preference = {
     items,
     notification_url: notificationUrl,
+    back_urls: baseUrl
+      ? {
+          success: `${baseUrl}/checkout-success.html`,
+          failure: `${baseUrl}/checkout-success.html`,
+          pending: `${baseUrl}/checkout-success.html`,
+        }
+      : undefined,
+    auto_return: 'approved',
+    external_reference: project.slug,
+    metadata: {
+      demo: project.slug,
+      project_name: project.name || '',
+    },
   };
 
   const response = await fetch('https://api.mercadopago.com/checkout/preferences', {

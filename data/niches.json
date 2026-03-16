@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "pizzaria",
+    "name": "Pizzarias",
+    "problem": "dependencia de apps de delivery e altas taxas",
+    "solution": "sistema proprio de pedidos online com cardapio digital",
+    "demo_project": "pizzaria",
+    "keywords": [
+      "site para pizzaria",
+      "sistema para pizzaria",
+      "cardapio digital pizzaria"
+    ]
+  },
+  {
+    "slug": "restaurante",
+    "name": "Restaurantes",
+    "problem": "baixa visibilidade no Google e poucos pedidos diretos",
+    "solution": "landing page com reservas e pedidos via WhatsApp",
+    "demo_project": "pizzaria",
+    "keywords": [
+      "site para restaurante",
+      "cardapio digital restaurante",
+      "reservas online restaurante"
+    ]
+  },
+  {
+    "slug": "barbearia",
+    "name": "Barbearias",
+    "problem": "agenda vazia em dias de baixa e pouco retorno de redes sociais",
+    "solution": "landing page com CTA para WhatsApp e prova social",
+    "demo_project": "barbearia",
+    "keywords": [
+      "site para barbearia",
+      "barbearia no google",
+      "landing page barbearia"
+    ]
+  },
+  {
+    "slug": "clinica",
+    "name": "Clinicas Esteticas",
+    "problem": "dificuldade em gerar agendamentos recorrentes",
+    "solution": "site focado em autoridade e captacao de leads",
+    "demo_project": "clinica-botox",
+    "keywords": [
+      "site para clinica estetica",
+      "clinica estetica no google",
+      "agendamento online clinica"
+    ]
+  },
+  {
+    "slug": "petshop",
+    "name": "Petshops",
+    "problem": "clientes procuram banho e tosa no Google e nao encontram o negocio",
+    "solution": "site local com servicos, precos e CTA direto",
+    "demo_project": "barbearia",
+    "keywords": [
+      "site para petshop",
+      "petshop no google",
+      "banho e tosa online"
+    ]
+  }
+]
