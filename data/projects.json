@@ -8,6 +8,54 @@
       "niche_page": "/site-para-pizzaria.html",
       "image": "/assets/prints/pizzaria-demo-self.vercel.app_.webp",
       "billing_type": "setup_subscription",
+      "plans": [
+        {
+          "id": "landing",
+          "name": "Landing Page para Pizzaria",
+          "setup": 890,
+          "monthly": null,
+          "features": [
+            "Landing page profissional",
+            "Cardapio digital",
+            "Botao de pedidos no WhatsApp",
+            "SEO local",
+            "Pagina otimizada para Google",
+            "Design responsivo"
+          ]
+        },
+        {
+          "id": "pedidos",
+          "name": "Sistema de Pedidos para Pizzarias",
+          "badge": "🔥 Mais vendido",
+          "setup": 1490,
+          "monthly": 247,
+          "features": [
+            "Cardapio digital completo",
+            "Pedidos online",
+            "Carrinho de compras",
+            "Pagamento online",
+            "Painel administrativo",
+            "Gestao de pedidos",
+            "Notificacoes em tempo real",
+            "Integracao com WhatsApp",
+            "Dashboard de pedidos"
+          ]
+        },
+        {
+          "id": "ia",
+          "name": "Automacao com IA para Pizzarias",
+          "setup": 2490,
+          "monthly": 397,
+          "features": [
+            "Tudo do sistema de pedidos",
+            "Assistente de atendimento com IA",
+            "Atendimento automatico no WhatsApp",
+            "Confirmacao automatica de pedidos",
+            "Resposta automatica para clientes",
+            "Automacao de atendimento"
+          ]
+        }
+      ],
       "pricing": {
         "setup": 490,
         "monthly": 79
@@ -46,7 +94,21 @@
         "barbearia no google"
       ],
       "category": "barbearia",
-      "featured": false
+      "featured": false,
+      "plans": [
+        {
+          "id": "principal",
+          "name": "Landing page para barbearia",
+          "setup": 397,
+          "monthly": null,
+          "features": [
+            "Landing page profissional",
+            "Botao de agendamento no WhatsApp",
+            "SEO local",
+            "Design responsivo"
+          ]
+        }
+      ]
     },
     {
       "slug": "advocacia",
@@ -70,7 +132,21 @@
         "advocacia no google"
       ],
       "category": "advocacia",
-      "featured": false
+      "featured": false,
+      "plans": [
+        {
+          "id": "principal",
+          "name": "Site institucional para advocacia",
+          "setup": 890,
+          "monthly": null,
+          "features": [
+            "Site institucional profissional",
+            "Formulario de contato",
+            "SEO local",
+            "Design responsivo"
+          ]
+        }
+      ]
     },
     {
       "slug": "clinica-botox",
@@ -94,7 +170,21 @@
         "clinica estetica no google"
       ],
       "category": "clinica",
-      "featured": false
+      "featured": false,
+      "plans": [
+        {
+          "id": "principal",
+          "name": "Site para clinica estetica",
+          "setup": 590,
+          "monthly": 69,
+          "features": [
+            "Site institucional",
+            "CTA para agendamentos",
+            "SEO local",
+            "Design responsivo"
+          ]
+        }
+      ]
     },
     {
       "slug": "clinica-harmonizacao",
@@ -118,7 +208,21 @@
         "harmonizacao facial no google"
       ],
       "category": "clinica",
-      "featured": false
+      "featured": false,
+      "plans": [
+        {
+          "id": "principal",
+          "name": "Site para clinica de harmonizacao",
+          "setup": 590,
+          "monthly": 69,
+          "features": [
+            "Site institucional",
+            "CTA para agendamentos",
+            "SEO local",
+            "Design responsivo"
+          ]
+        }
+      ]
     },
     {
       "slug": "consorcio",
@@ -142,7 +246,21 @@
         "consorcio no google"
       ],
       "category": "consorcio",
-      "featured": false
+      "featured": false,
+      "plans": [
+        {
+          "id": "principal",
+          "name": "Landing page para consorcio",
+          "setup": 520,
+          "monthly": null,
+          "features": [
+            "Landing page de captacao",
+            "Formulario de simulacao",
+            "SEO local",
+            "Design responsivo"
+          ]
+        }
+      ]
     },
     {
       "slug": "ecommerce",
@@ -166,7 +284,21 @@
         "ecommerce para pequenos negocios"
       ],
       "category": "ecommerce",
-      "featured": false
+      "featured": false,
+      "plans": [
+        {
+          "id": "principal",
+          "name": "Site para e-commerce",
+          "setup": 1490,
+          "monthly": 149,
+          "features": [
+            "Catalogo de produtos",
+            "Carrinho de compras",
+            "Checkout integrado",
+            "Design responsivo"
+          ]
+        }
+      ]
     },
     {
       "slug": "tatuagem",
@@ -190,7 +322,21 @@
         "tatuagem no google"
       ],
       "category": "tatuagem",
-      "featured": false
+      "featured": false,
+      "plans": [
+        {
+          "id": "principal",
+          "name": "Landing page para estudio de tatuagem",
+          "setup": 447,
+          "monthly": null,
+          "features": [
+            "Portfolio de trabalhos",
+            "CTA para WhatsApp",
+            "SEO local",
+            "Design responsivo"
+          ]
+        }
+      ]
     }
   ]
 }

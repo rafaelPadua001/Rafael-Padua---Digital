@@ -75,20 +75,30 @@
     `;
   }
 
+  function renderPlanSelector(project) {
+    const plans = Array.isArray(project?.plans) ? project.plans : [];
+    if (!plans.length) return '';
+    return `
+      <div class="plan-header">
+        <span class="plan-badge"></span>
+        <h4 class="plan-title"></h4>
+      </div>
+      <select class="plan-selector">
+        ${plans.map((plan) => `<option value="${plan.id}">${plan.name}</option>`).join('')}
+      </select>
+      <div class="plans-container"></div>
+    `;
+  }
+
   function renderPlanButtons(project) {
     if (!project) return '';
-    const setupPrice = project?.pricing?.setup ?? project?.pricing?.setup_price;
-    const monthlyPrice = project?.pricing?.monthly ?? project?.pricing?.monthly_price;
-    const buttons = [];
-
-    if (setupPrice) {
-      buttons.push('<button class="btn-primary" data-plan="setup">Contratar setup</button>');
-    }
-    if (monthlyPrice) {
-      buttons.push('<button class="btn-secondary" data-plan="subscription">Setup + assinatura</button>');
-    }
-
-    return buttons.join('');
+    return `
+      <div class="conversion-buttons">
+        <button class="cta-primary" data-plan="setup">Contratar setup</button>
+        <button class="cta-secondary" data-plan="subscription">Setup + assinatura</button>
+        <a class="cta-outline" data-track="demo_click" data-project-demo href="#">Ver demo real</a>
+      </div>
+    `;
   }
 
   Promise.all([loadJson('/data/niches.json'), window.PaduaProjects.loadProjects()])
@@ -113,9 +123,24 @@
       if (project) {
         setText('[data-project-name]', project.name);
         setLink('[data-project-demo]', window.PaduaProjects.resolveDemoUrl(project));
-        setHtml('[data-project-pricing]', renderPricing(project));
         setHtml('[data-project-image]', renderDemoImage(project));
-        setHtml('[data-project-plans]', renderPlanButtons(project));
+
+        if (Array.isArray(project.plans) && project.plans.length) {
+          setHtml('[data-project-pricing]', '');
+          setHtml(
+            '[data-project-plans]',
+            `${renderPlanSelector(project)}
+             <div class="pricing-info">
+               <p class="pricing-setup"></p>
+               <p class="pricing-monthly"></p>
+             </div>
+             ${renderPlanButtons(project)}
+             <ul class="plan-features"></ul>`
+          );
+        } else {
+          setHtml('[data-project-pricing]', renderPricing(project));
+          setHtml('[data-project-plans]', renderPlanButtons(project));
+        }
 
         const checkoutLinks = window.PaduaProjects.resolveCheckoutLinks(project);
         const checkoutPrimary = checkoutLinks.setup || checkoutLinks.subscription;
@@ -127,12 +152,110 @@
       }
 
       root.classList.add('ready');
+      document.body.classList.add('plans-ready');
+
+      const selector = document.querySelector('.plan-selector');
+      const planTitle = document.querySelector('.plan-title');
+      const planBadge = document.querySelector('.plan-badge');
+      const planFeatures = document.querySelector('.plan-features');
+      const pricingSetup = document.querySelector('.pricing-setup');
+      const pricingMonthly = document.querySelector('.pricing-monthly');
+      const plansContainer = document.querySelector('.plans-container');
+
+      function updatePlan(planId) {
+        const plans = Array.isArray(project?.plans) ? project.plans : [];
+        const plan = plans.find((item) => item.id === planId) || plans[0] || null;
+        if (!plan) return;
+
+        if (planTitle) planTitle.textContent = plan.name || project.name || '';
+        if (planBadge) {
+          planBadge.textContent = plan.badge || '';
+          planBadge.style.display = plan.badge ? 'inline-flex' : 'none';
+        }
+
+        if (pricingSetup) {
+          pricingSetup.textContent = `Setup: R$ ${plan.setup}`;
+        }
+
+        if (pricingMonthly) {
+          if (plan.monthly) {
+            pricingMonthly.textContent = `Mensalidade: R$ ${plan.monthly} / mes`;
+            pricingMonthly.style.display = '';
+          } else {
+            pricingMonthly.textContent = 'Mensalidade: Sem mensalidade';
+            pricingMonthly.style.display = '';
+          }
+        }
+
+        if (planFeatures) {
+          planFeatures.innerHTML = '';
+          (plan.features || []).forEach((feature) => {
+            const li = document.createElement('li');
+            li.textContent = feature;
+            planFeatures.appendChild(li);
+          });
+          planFeatures.style.display = plan.features?.length ? '' : 'none';
+        }
+
+        if (plansContainer) {
+          plansContainer.querySelectorAll('.plan-card').forEach((card) => {
+            card.classList.toggle('selected', card.dataset.planId === plan.id);
+          });
+        }
+      }
+
+      if (plansContainer && project?.plans?.length) {
+        plansContainer.innerHTML = '';
+        project.plans.forEach((plan, index) => {
+          const card = document.createElement('div');
+          card.className = `plan-card${plan.badge ? ' plan-featured' : ''}${index === 0 ? ' selected' : ''}`;
+          card.dataset.planId = plan.id;
+          card.innerHTML = `
+            ${plan.badge ? `<span class="plan-badge">${plan.badge}</span>` : ''}
+            <h3>${plan.name}</h3>
+            <p class="plan-setup">Setup: R$ ${plan.setup}</p>
+            <p class="plan-monthly">${plan.monthly ? `Mensalidade: R$ ${plan.monthly}` : 'Mensalidade: Sem mensalidade'}</p>
+            <ul class="plan-features">
+              ${(plan.features || []).map((feature) => `<li>${feature}</li>`).join('')}
+            </ul>
+            <button class="plan-cta" type="button">Solicitar demonstracao</button>
+          `;
+          plansContainer.appendChild(card);
+        });
+      }
+
+      if (selector && project?.plans?.length) {
+        updatePlan(selector.value);
+        selector.addEventListener('change', () => updatePlan(selector.value));
+      }
+
+      if (plansContainer) {
+        plansContainer.querySelectorAll('.plan-card').forEach((card) => {
+          card.addEventListener('click', () => {
+            const planId = card.dataset.planId;
+            if (selector) selector.value = planId;
+            updatePlan(planId);
+          });
+
+          const cta = card.querySelector('.plan-cta');
+          if (cta) {
+            cta.addEventListener('click', (event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              const planId = card.dataset.planId;
+              if (selector) selector.value = planId;
+              updatePlan(planId);
+            });
+          }
+        });
+      }
 
       const planButtons = document.querySelectorAll('[data-project-plans] button');
       planButtons.forEach((button) => {
         button.addEventListener('click', () => {
           if (!window.PaduaCheckout) return;
-          window.PaduaCheckout.createMercadoPagoPreference(button.dataset.plan, project);
+          const activePlanId = selector?.value || null;
+          window.PaduaCheckout.createMercadoPagoPreference(button.dataset.plan, project, activePlanId);
         });
       });
     })

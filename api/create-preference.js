@@ -65,8 +65,13 @@ module.exports = async (req, res) => {
   const plan = String(payload.plan || 'setup').toLowerCase();
   const projectSlug = payload.project || payload.demo;
   const project = resolveProjectByDemo(projectSlug);
-  const setup = project?.pricing?.setup ?? project?.pricing?.setup_price ?? null;
-  const monthly = project?.pricing?.monthly ?? project?.pricing?.monthly_price ?? null;
+  const planId = payload.planId ? String(payload.planId) : null;
+  const selectedPlan = planId
+    ? project?.plans?.find((p) => String(p.id) === planId)
+    : null;
+
+  const setup = selectedPlan?.setup ?? project?.pricing?.setup ?? project?.pricing?.setup_price ?? null;
+  const monthly = selectedPlan?.monthly ?? project?.pricing?.monthly ?? project?.pricing?.monthly_price ?? null;
   let unitPrice = null;
 
   if (plan === 'subscription') {
@@ -117,6 +122,7 @@ module.exports = async (req, res) => {
       demo: project.slug,
       project_name: project.name || '',
       plan,
+      plan_id: planId || '',
     },
   };
 
