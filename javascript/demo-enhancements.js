@@ -37,17 +37,13 @@
           </div>
           <div class="demo-conversion-box">
             <h3>Comece seu projeto hoje</h3>
-            <div class="plan-header">
-              <span class="plan-badge"></span>
-              <h4 class="plan-title"></h4>
+            <div class="pricing-info">
+              <p class="pricing-setup"></p>
+              <p class="pricing-monthly"></p>
             </div>
             <div class="plans-container"></div>
             <div class="plan-selector-wrap">
               <select class="plan-selector"></select>
-            </div>
-            <div class="pricing-info">
-              <p class="pricing-setup"></p>
-              <p class="pricing-monthly"></p>
             </div>
             <div class="conversion-buttons">
               ${actions}
@@ -97,8 +93,6 @@
   }
 
   function updatePlan(project, planId) {
-    const planTitle = document.querySelector('.plan-title');
-    const planBadge = document.querySelector('.plan-badge');
     const setupEl = document.querySelector('.pricing-setup');
     const monthlyEl = document.querySelector('.pricing-monthly');
 
@@ -108,14 +102,6 @@
     const setup = plan?.setup ?? project?.pricing?.setup ?? 0;
     const monthly = plan?.monthly ?? project?.pricing?.monthly ?? null;
 
-    if (planTitle) {
-      planTitle.textContent = plan?.name || project.name || 'Plano';
-    }
-
-    if (planBadge) {
-      planBadge.textContent = plan?.badge || '';
-      planBadge.style.display = plan?.badge ? 'inline-flex' : 'none';
-    }
 
     if (setupEl) {
       setupEl.textContent = `Setup: R$ ${setup}`;
