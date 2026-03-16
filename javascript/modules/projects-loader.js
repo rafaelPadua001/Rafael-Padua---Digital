@@ -38,6 +38,10 @@
     return projects.find((project) => String(project.slug).toLowerCase() === target) || null;
   }
 
+  function getFeaturedProjects(projects) {
+    return (projects || []).filter((project) => project.featured === true);
+  }
+
   function resolvePrice(project, plan) {
     const pricing = project?.pricing || {};
     const setup = pricing.setup ?? pricing.setup_price ?? null;
@@ -54,5 +58,6 @@
     getSlugFromPath,
     findBySlug,
     resolvePrice,
+    getFeaturedProjects,
   };
 })();

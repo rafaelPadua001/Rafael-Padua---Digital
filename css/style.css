@@ -1062,34 +1062,36 @@ section {
 }
 
 .demo-preview-container {
-    margin: 16px 0;
+    max-width: 720px;
+    margin: 40px auto;
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--border);
     background: #fff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .04);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
 }
 
 .demo-preview {
     height: 420px;
     overflow: hidden;
     position: relative;
+    border-radius: 10px;
 }
 
 .demo-preview img {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 6s ease;
+    transition: transform 8s ease;
 }
 
 .demo-preview:hover img {
-    transform: translateY(-60%);
+    transform: translateY(-65%);
 }
 
-@media (hover: none) {
+@media (max-width: 768px) {
     .demo-preview img {
-        transform: none;
+        transform: none !important;
         transition: none;
     }
 }
