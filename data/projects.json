@@ -20,7 +20,9 @@
         "site para pizzaria",
         "sistema para pizzaria",
         "cardapio digital pizzaria"
-      ]
+      ],
+      "category": "pizzaria",
+      "featured": false
     },
     {
       "slug": "barbearia",
@@ -31,7 +33,8 @@
       "image": "/assets/prints/barbershop-topaz-eight.vercel.app_.webp",
       "billing_type": "setup",
       "pricing": {
-        "setup": 397
+        "setup": 397,
+        "monthly": null
       },
       "checkout": {
         "setup_link": "LINK_MERCADOPAGO_BARBEARIA_SETUP",
@@ -41,7 +44,9 @@
         "site para barbearia",
         "landing page barbearia",
         "barbearia no google"
-      ]
+      ],
+      "category": "barbearia",
+      "featured": false
     },
     {
       "slug": "advocacia",
@@ -52,7 +57,8 @@
       "image": "/assets/prints/advocacia-demo.vercel.app_.webp",
       "billing_type": "setup",
       "pricing": {
-        "setup": 890
+        "setup": 890,
+        "monthly": null
       },
       "checkout": {
         "setup_link": "LINK_MERCADOPAGO_ADVOCACIA_SETUP",
@@ -62,7 +68,9 @@
         "site para advocacia",
         "site para escritorio de advocacia",
         "advocacia no google"
-      ]
+      ],
+      "category": "advocacia",
+      "featured": false
     },
     {
       "slug": "clinica-botox",
@@ -84,7 +92,9 @@
         "site para clinica estetica",
         "site para clinica de botox",
         "clinica estetica no google"
-      ]
+      ],
+      "category": "clinica",
+      "featured": false
     },
     {
       "slug": "clinica-harmonizacao",
@@ -106,7 +116,9 @@
         "site para harmonizacao facial",
         "site para clinica de harmonizacao",
         "harmonizacao facial no google"
-      ]
+      ],
+      "category": "clinica",
+      "featured": false
     },
     {
       "slug": "consorcio",
@@ -117,7 +129,8 @@
       "image": "/assets/prints/consorcio-demo-five.vercel.app_.webp",
       "billing_type": "setup",
       "pricing": {
-        "setup": 520
+        "setup": 520,
+        "monthly": null
       },
       "checkout": {
         "setup_link": "LINK_MERCADOPAGO_CONSORCIO_SETUP",
@@ -127,7 +140,9 @@
         "site para consorcio",
         "landing page consorcio",
         "consorcio no google"
-      ]
+      ],
+      "category": "consorcio",
+      "featured": false
     },
     {
       "slug": "ecommerce",
@@ -138,7 +153,8 @@
       "image": "/assets/prints/demo-store-six-zeta.vercel.app_.webp",
       "billing_type": "subscription",
       "pricing": {
-        "monthly": 99
+        "monthly": 149,
+        "setup": 1490
       },
       "checkout": {
         "setup_link": null,
@@ -148,7 +164,9 @@
         "site para ecommerce",
         "loja virtual simples",
         "ecommerce para pequenos negocios"
-      ]
+      ],
+      "category": "ecommerce",
+      "featured": false
     },
     {
       "slug": "tatuagem",
@@ -159,7 +177,8 @@
       "image": "/assets/prints/tattoo-demo-beta.vercel.app_.webp",
       "billing_type": "setup",
       "pricing": {
-        "setup": 447
+        "setup": 447,
+        "monthly": null
       },
       "checkout": {
         "setup_link": "LINK_MERCADOPAGO_TATUAGEM_SETUP",
@@ -169,7 +188,9 @@
         "site para estudio de tatuagem",
         "landing page tatuagem",
         "tatuagem no google"
-      ]
+      ],
+      "category": "tatuagem",
+      "featured": false
     }
   ]
 }

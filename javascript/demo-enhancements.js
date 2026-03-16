@@ -20,8 +20,31 @@
       <button data-plan="setup" class="cta-primary" data-track="checkout_click" data-checkout-type="setup">Contratar setup</button>
       <button data-plan="subscription" class="cta-secondary" data-track="checkout_click" data-checkout-type="subscription">Setup + assinatura</button>
       <a href="${demoUrl}" class="cta-outline demo-real-link" data-track="demo_click">Ver demo real</a>
-      <a href="/#contato" class="cta-outline">Começar projeto</a>
+      <a href="/#contato" class="cta-outline">Comecar projeto</a>
     `;
+  }
+
+  function updatePricing(project) {
+    const setupEl = document.querySelector('.pricing-setup');
+    const monthlyEl = document.querySelector('.pricing-monthly');
+
+    if (!project || !project.pricing) return;
+
+    const setup = project.pricing.setup ?? 0;
+    const monthly = project.pricing.monthly ?? null;
+
+    if (setupEl) {
+      setupEl.textContent = `Setup: R$ ${setup}`;
+    }
+
+    if (monthlyEl) {
+      if (monthly) {
+        monthlyEl.textContent = `Mensalidade: R$ ${monthly} / mes`;
+        monthlyEl.style.display = '';
+      } else {
+        monthlyEl.style.display = 'none';
+      }
+    }
   }
 
   function createConversionSection(project) {
@@ -35,9 +58,6 @@
     const nicheSlug = project.niche;
     const nicheLabel = nicheMap[nicheSlug];
     const nicheLink = nicheLabel ? `/site-para-${nicheSlug}.html` : null;
-
-    const setupPrice = window.PaduaProjects.formatPrice(490);
-    const monthlyPrice = window.PaduaProjects.formatPrice(79);
     const actions = createCheckoutButtons(project);
 
     return `
@@ -49,8 +69,8 @@
           <div class="demo-conversion-box">
             <h3>Comece seu projeto hoje</h3>
             <div class="pricing-info">
-              <p><strong>Setup:</strong> ${setupPrice || 'R$ 490'}</p>
-              <p><strong>Mensalidade:</strong> ${monthlyPrice || 'R$ 79'} / mês</p>
+              <p class="pricing-setup"></p>
+              <p class="pricing-monthly"></p>
             </div>
             <div class="conversion-buttons">
               ${actions}
@@ -75,6 +95,7 @@
     const wrapper = document.createElement('div');
     wrapper.innerHTML = createConversionSection(project);
     anchor.parentNode.insertBefore(wrapper.firstElementChild, anchor);
+    updatePricing(project);
 
     const planButtons = document.querySelectorAll('.demo-conversion [data-plan]');
     planButtons.forEach((button) => {
