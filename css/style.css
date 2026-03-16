@@ -869,6 +869,68 @@ section {
     background: #f9fafb;
 }
 
+.demo-conversion-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .04);
+    display: grid;
+    gap: 16px;
+}
+
+.demo-conversion-box h3 {
+    font-size: 1.2rem;
+}
+
+.pricing-info p {
+    margin: 0 0 6px;
+    color: var(--muted);
+}
+
+.conversion-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.cta-primary,
+.cta-secondary,
+.cta-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--primary);
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.cta-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+.cta-secondary:hover,
+.cta-outline:hover {
+    border-color: var(--primary);
+    background: #f9fafb;
+    transform: translateY(-2px);
+}
+
+.cta-primary:hover {
+    background: #0b0f1a;
+    border-color: #0b0f1a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
 .conversion-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -999,7 +1061,7 @@ section {
     font-weight: 600;
 }
 
-#demo-preview {
+.demo-preview-container {
     margin: 16px 0;
     border-radius: 16px;
     overflow: hidden;
@@ -1008,10 +1070,28 @@ section {
     box-shadow: 0 10px 30px rgba(0, 0, 0, .04);
 }
 
-#demo-preview img {
+.demo-preview {
+    height: 420px;
+    overflow: hidden;
+    position: relative;
+}
+
+.demo-preview img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 6s ease;
+}
+
+.demo-preview:hover img {
+    transform: translateY(-60%);
+}
+
+@media (hover: none) {
+    .demo-preview img {
+        transform: none;
+        transition: none;
+    }
 }
 
 .checkout-success {
