@@ -63,6 +63,28 @@
     `;
   }
 
+  function renderDemoImage(project) {
+    const image = window.PaduaProjects.resolveImage(project);
+    if (!image) return '';
+    return `<img src="${image}" alt="Preview da demo" loading="lazy" decoding="async" />`;
+  }
+
+  function renderPlanButtons(project) {
+    if (!project) return '';
+    const setupPrice = project?.pricing?.setup ?? project?.pricing?.setup_price;
+    const monthlyPrice = project?.pricing?.monthly ?? project?.pricing?.monthly_price;
+    const buttons = [];
+
+    if (setupPrice) {
+      buttons.push('<button class="btn-primary" data-plan="setup">Contratar setup</button>');
+    }
+    if (monthlyPrice) {
+      buttons.push('<button class="btn-secondary" data-plan="subscription">Setup + assinatura</button>');
+    }
+
+    return buttons.join('');
+  }
+
   Promise.all([loadJson('/data/niches.json'), window.PaduaProjects.loadProjects()])
     .then(([niches, projects]) => {
       if (!Array.isArray(niches)) return;
@@ -84,8 +106,10 @@
 
       if (project) {
         setText('[data-project-name]', project.name);
-        setLink('[data-project-demo]', project.demo_url);
+        setLink('[data-project-demo]', window.PaduaProjects.resolveDemoUrl(project));
         setHtml('[data-project-pricing]', renderPricing(project));
+        setHtml('[data-project-image]', renderDemoImage(project));
+        setHtml('[data-project-plans]', renderPlanButtons(project));
 
         const checkoutLinks = window.PaduaProjects.resolveCheckoutLinks(project);
         const checkoutPrimary = checkoutLinks.setup || checkoutLinks.subscription;
@@ -97,6 +121,14 @@
       }
 
       root.classList.add('ready');
+
+      const planButtons = document.querySelectorAll('[data-project-plans] button');
+      planButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          if (!window.PaduaCheckout) return;
+          window.PaduaCheckout.createMercadoPagoPreference(button.dataset.plan, project);
+        });
+      });
     })
     .catch(() => {});
 })();

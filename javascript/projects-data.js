@@ -17,13 +17,19 @@
     return priceFormatter.format(number);
   }
 
+  function normalizeProjects(data) {
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.projects)) return data.projects;
+    return [];
+  }
+
   async function loadProjects() {
     if (state.projects) return state.projects;
     if (!state.loading) {
       state.loading = fetch('/data/projects.json', { cache: 'no-store' })
         .then((res) => res.json())
         .then((data) => {
-          state.projects = Array.isArray(data) ? data : [];
+          state.projects = normalizeProjects(data);
           return state.projects;
         })
         .catch(() => {
@@ -50,8 +56,8 @@
 
   function buildPricingLines(project) {
     if (!project || !project.pricing) return [];
-    const setup = formatPrice(project.pricing.setup_price);
-    const monthly = formatPrice(project.pricing.monthly_price);
+    const setup = formatPrice(project.pricing.setup ?? project.pricing.setup_price);
+    const monthly = formatPrice(project.pricing.monthly ?? project.pricing.monthly_price);
     const lines = [];
     if (setup) lines.push({ label: 'Setup', value: setup });
     if (monthly) lines.push({ label: 'Mensalidade', value: `${monthly} / mes` });
@@ -72,6 +78,18 @@
     };
   }
 
+  function resolveImage(project) {
+    return project?.image || project?.preview || null;
+  }
+
+  function resolveDemoUrl(project) {
+    return project?.demo || project?.demo_url || null;
+  }
+
+  function resolveNichePage(project) {
+    return project?.niche_page || null;
+  }
+
   window.PaduaProjects = {
     loadProjects,
     getProjectBySlug,
@@ -79,5 +97,8 @@
     resolvePricingLabel,
     buildPricingLines,
     resolveCheckoutLinks,
+    resolveImage,
+    resolveDemoUrl,
+    resolveNichePage,
   };
 })();

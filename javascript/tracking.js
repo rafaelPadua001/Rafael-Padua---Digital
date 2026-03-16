@@ -57,7 +57,7 @@
     }
 
     if (trackType === 'checkout_click') {
-      track('payment_initiated', { type: target.dataset.checkoutType || 'unknown' });
+      track('payment_initiated', { type: target.dataset.checkoutType || target.dataset.plan || 'unknown' });
     }
 
     if (target.classList.contains('buy-button')) {

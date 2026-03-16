@@ -23,7 +23,8 @@ function loadProjectsData() {
   try {
     const filePath = path.join(process.cwd(), 'data', 'projects.json');
     const raw = fs.readFileSync(filePath, 'utf8');
-    cachedProjects = JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    cachedProjects = Array.isArray(parsed) ? parsed : parsed.projects || [];
   } catch {
     cachedProjects = [];
   }
@@ -61,13 +62,26 @@ module.exports = async (req, res) => {
   }
 
   const payload = await readJsonBody(req);
-  const project = resolveProjectByDemo(payload.demo);
-  const unitPrice = project?.pricing?.setup_price;
+  const plan = String(payload.plan || 'setup').toLowerCase();
+  const projectSlug = payload.project || payload.demo;
+  const project = resolveProjectByDemo(projectSlug);
+  const setup = project?.pricing?.setup ?? project?.pricing?.setup_price ?? null;
+  const monthly = project?.pricing?.monthly ?? project?.pricing?.monthly_price ?? null;
+  let unitPrice = null;
+
+  if (plan === 'subscription') {
+    if (setup && monthly) unitPrice = setup + monthly;
+    else unitPrice = monthly || setup;
+  } else {
+    unitPrice = setup;
+  }
 
   if (!project || !unitPrice || isNaN(unitPrice) || unitPrice <= 0) {
     res.status(400).json({
       error: 'Invalid demo or price',
       received_demo: payload.demo,
+      received_project: payload.project,
+      received_plan: payload.plan,
     });
     return;
   }
@@ -102,6 +116,7 @@ module.exports = async (req, res) => {
     metadata: {
       demo: project.slug,
       project_name: project.name || '',
+      plan,
     },
   };
 

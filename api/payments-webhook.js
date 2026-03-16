@@ -39,7 +39,8 @@ function loadProjectsData() {
   try {
     const filePath = path.join(process.cwd(), 'data', 'projects.json');
     const raw = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : parsed.projects || [];
   } catch {
     return [];
   }

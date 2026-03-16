@@ -999,6 +999,21 @@ section {
     font-weight: 600;
 }
 
+#demo-preview {
+    margin: 16px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .04);
+}
+
+#demo-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .checkout-success {
     padding: 120px 0 90px;
     background: #f9fafb;
