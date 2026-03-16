@@ -17,21 +17,21 @@
     const actions = [];
     if (links.setup) {
       actions.push(
-        `<a class="btn-primary" data-track="checkout_click" data-checkout-type="setup" href="${links.setup}">Contratar agora</a>`
+        `<button class="btn-primary" data-plan="setup" data-track="checkout_click" data-checkout-type="setup">Contratar setup</button>`
       );
     }
     if (links.subscription && links.setup) {
       actions.push(
-        `<a class="btn-secondary" data-track="checkout_click" data-checkout-type="subscription" href="${links.subscription}">Ativar mensalidade</a>`
+        `<button class="btn-secondary" data-plan="subscription" data-track="checkout_click" data-checkout-type="subscription">Setup + assinatura</button>`
       );
     }
     if (links.subscription && !links.setup) {
       actions.push(
-        `<a class="btn-primary" data-track="checkout_click" data-checkout-type="subscription" href="${links.subscription}">Ativar plano</a>`
+        `<button class="btn-primary" data-plan="subscription" data-track="checkout_click" data-checkout-type="subscription">Ativar plano</button>`
       );
     }
     actions.push(
-      `<a class="btn-secondary" data-track="demo_click" href="${project.demo_url || '#'}">Testar demo</a>`
+      `<a class="btn-secondary" data-track="demo_click" href="${window.PaduaProjects.resolveDemoUrl(project) || '#'}">Testar demo</a>`
     );
     return actions.join('');
   }
@@ -98,5 +98,23 @@
     const wrapper = document.createElement('div');
     wrapper.innerHTML = createConversionSection(project);
     anchor.parentNode.insertBefore(wrapper.firstElementChild, anchor);
+
+    const planButtons = document.querySelectorAll('.demo-conversion [data-plan]');
+    planButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!window.PaduaCheckout) return;
+        window.PaduaCheckout.createMercadoPagoPreference(button.dataset.plan, project);
+      });
+    });
+
+    const legacyBuyButtons = document.querySelectorAll('.buy-button');
+    legacyBuyButtons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (!window.PaduaCheckout) return;
+        window.PaduaCheckout.createMercadoPagoPreference('setup', project);
+      });
+    });
   });
 })();
