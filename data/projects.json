@@ -14,14 +14,7 @@
           "name": "Landing Page para Pizzaria",
           "setup": 890,
           "monthly": null,
-          "features": [
-            "Landing page profissional",
-            "Cardapio digital",
-            "Botao de pedidos no WhatsApp",
-            "SEO local",
-            "Pagina otimizada para Google",
-            "Design responsivo"
-          ]
+          "features": []
         },
         {
           "id": "pedidos",
