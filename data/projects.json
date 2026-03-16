@@ -1,0 +1,162 @@
+[
+  {
+    "slug": "pizzaria",
+    "name": "Sistema de pedidos para pizzaria",
+    "niche": "pizzaria",
+    "demo_url": "/demos/pizzaria.html",
+    "billing_type": "setup_subscription",
+    "pricing": {
+      "setup_price": 490,
+      "monthly_price": 79
+    },
+    "checkout": {
+      "setup_link": "LINK_MERCADOPAGO_PIZZARIA_SETUP",
+      "subscription_link": "LINK_MERCADOPAGO_PIZZARIA_ASSINATURA"
+    },
+    "seo_keywords": [
+      "site para pizzaria",
+      "sistema para pizzaria",
+      "cardapio digital pizzaria"
+    ]
+  },
+  {
+    "slug": "barbearia",
+    "name": "Landing page para barbearia",
+    "niche": "barbearia",
+    "demo_url": "/demos/barbearia.html",
+    "billing_type": "setup",
+    "pricing": {
+      "setup_price": 397,
+      "monthly_price": null
+    },
+    "checkout": {
+      "setup_link": "LINK_MERCADOPAGO_BARBEARIA_SETUP",
+      "subscription_link": null
+    },
+    "seo_keywords": [
+      "site para barbearia",
+      "landing page barbearia",
+      "barbearia no google"
+    ]
+  },
+  {
+    "slug": "advocacia",
+    "name": "Site institucional para advocacia",
+    "niche": "advocacia",
+    "demo_url": "/demos/advocacia.html",
+    "billing_type": "setup",
+    "pricing": {
+      "setup_price": 890,
+      "monthly_price": null
+    },
+    "checkout": {
+      "setup_link": "LINK_MERCADOPAGO_ADVOCACIA_SETUP",
+      "subscription_link": null
+    },
+    "seo_keywords": [
+      "site para advocacia",
+      "site para escritorio de advocacia",
+      "advocacia no google"
+    ]
+  },
+  {
+    "slug": "clinica-botox",
+    "name": "Site para clinica estetica",
+    "niche": "clinica",
+    "demo_url": "/demos/clinica-botox.html",
+    "billing_type": "setup_subscription",
+    "pricing": {
+      "setup_price": 590,
+      "monthly_price": 69
+    },
+    "checkout": {
+      "setup_link": "LINK_MERCADOPAGO_CLINICA_SETUP",
+      "subscription_link": "LINK_MERCADOPAGO_CLINICA_ASSINATURA"
+    },
+    "seo_keywords": [
+      "site para clinica estetica",
+      "site para clinica de botox",
+      "clinica estetica no google"
+    ]
+  },
+  {
+    "slug": "clinica-harmonizacao",
+    "name": "Site para clinica de harmonizacao",
+    "niche": "clinica",
+    "demo_url": "/demos/clinica-harmonizacao.html",
+    "billing_type": "setup_subscription",
+    "pricing": {
+      "setup_price": 590,
+      "monthly_price": 69
+    },
+    "checkout": {
+      "setup_link": "LINK_MERCADOPAGO_HARMONIZACAO_SETUP",
+      "subscription_link": "LINK_MERCADOPAGO_HARMONIZACAO_ASSINATURA"
+    },
+    "seo_keywords": [
+      "site para harmonizacao facial",
+      "site para clinica de harmonizacao",
+      "harmonizacao facial no google"
+    ]
+  },
+  {
+    "slug": "consorcio",
+    "name": "Landing page para consorcio",
+    "niche": "consorcio",
+    "demo_url": "/demos/consorcio.html",
+    "billing_type": "setup",
+    "pricing": {
+      "setup_price": 520,
+      "monthly_price": null
+    },
+    "checkout": {
+      "setup_link": "LINK_MERCADOPAGO_CONSORCIO_SETUP",
+      "subscription_link": null
+    },
+    "seo_keywords": [
+      "site para consorcio",
+      "landing page consorcio",
+      "consorcio no google"
+    ]
+  },
+  {
+    "slug": "ecommerce",
+    "name": "Site para e-commerce",
+    "niche": "ecommerce",
+    "demo_url": "/demos/ecommerce.html",
+    "billing_type": "subscription",
+    "pricing": {
+      "setup_price": null,
+      "monthly_price": 99
+    },
+    "checkout": {
+      "setup_link": null,
+      "subscription_link": "LINK_MERCADOPAGO_ECOMMERCE_ASSINATURA"
+    },
+    "seo_keywords": [
+      "site para ecommerce",
+      "loja virtual simples",
+      "ecommerce para pequenos negocios"
+    ]
+  },
+  {
+    "slug": "tatuagem",
+    "name": "Landing page para estudio de tatuagem",
+    "niche": "tatuagem",
+    "demo_url": "/demos/tatuagem.html",
+    "billing_type": "setup",
+    "pricing": {
+      "setup_price": 447,
+      "monthly_price": null
+    },
+    "checkout": {
+      "setup_link": "LINK_MERCADOPAGO_TATUAGEM_SETUP",
+      "subscription_link": null
+    },
+    "seo_keywords": [
+      "site para estudio de tatuagem",
+      "landing page tatuagem",
+      "tatuagem no google"
+    ]
+  }
+]

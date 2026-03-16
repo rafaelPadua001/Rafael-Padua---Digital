@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site para Barbearias | Padua Studio Digital</title>
+  <meta name="description" content="Landing page para barbearias com foco em agenda cheia e contatos no WhatsApp." />
+  <link rel="canonical" href="https://paduastudiodigital.vercel.app/site-para-barbearia.html" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="./assets/logo/logo.webp" type="image/webp" />
+</head>
+<body class="niche-page" data-niche="barbearia">
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo">
+        <img src="assets/logo/logo.webp" alt="Padua Studio Digital" width="160" height="40" decoding="async">
+      </div>
+      <nav class="nav">
+        <a href="/#projetos">Projetos</a>
+        <details class="nav-dropdown">
+          <summary>Soluções</summary>
+          <div class="nav-menu">
+            <a href="/site-para-pizzaria.html">Pizzarias</a>
+            <a href="/site-para-restaurante.html">Restaurantes</a>
+            <a href="/site-para-barbearia.html">Barbearias</a>
+            <a href="/site-para-clinica.html">Clínicas</a>
+            <a href="/site-para-petshop.html">Petshops</a>
+          </div>
+        </details>
+        <a href="/blog">Blog</a>
+        <a href="/#contato" class="btn-outline">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="niche-hero">
+      <div class="container">
+        <h1 data-niche-title>Site para Barbearias</h1>
+        <p>Receba mais mensagens no WhatsApp e preencha sua agenda.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" data-track="checkout_click" data-project-checkout href="#">Contratar agora</a>
+          <a class="btn-secondary" data-track="demo_click" data-project-demo href="#">Testar demo</a>
+        </div>
+        <div class="niche-badges" data-niche-keywords></div>
+      </div>
+    </section>
+
+    <section class="niche-section niche-section--alt">
+      <div class="container">
+        <div class="text-divider">
+          <h2>O problema do nicho</h2>
+        </div>
+        <p data-niche-problem></p>
+      </div>
+    </section>
+
+    <section class="niche-section">
+      <div class="container">
+        <div class="text-divider">
+          <h2>A solucao</h2>
+        </div>
+        <p data-niche-solution></p>
+        <div class="niche-highlight">
+          <div class="niche-highlight-card">Perfil profissional para Google</div>
+          <div class="niche-highlight-card">CTA direto para agendamento</div>
+          <div class="niche-highlight-card">Prova social e portifolio</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="niche-section niche-section--alt">
+      <div class="container">
+        <div class="text-divider">
+          <h2>Veja funcionando</h2>
+        </div>
+        <p data-project-name></p>
+        <div data-project-pricing></div>
+        <div class="hero-actions">
+          <a class="btn-secondary" data-track="demo_click" data-project-demo href="#">Ver demo real</a>
+          <a class="btn-primary" data-track="checkout_click" data-project-checkout href="#">Comecar projeto</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="footer-links">
+    <div class="container footer-grid">
+      <div>
+        <h4>Soluções por Nicho</h4>
+        <a href="/site-para-pizzaria.html">Site para pizzaria</a>
+        <a href="/site-para-restaurante.html">Site para restaurante</a>
+        <a href="/site-para-barbearia.html">Site para barbearia</a>
+        <a href="/site-para-clinica.html">Site para clínica</a>
+        <a href="/site-para-petshop.html">Site para petshop</a>
+      </div>
+      <div>
+        <h4>Explorar</h4>
+        <a href="/#projetos">Projetos</a>
+        <a href="/blog">Blog</a>
+        <a href="/#como-funciona">Como funciona</a>
+        <a href="/#contato">Contato</a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    &copy; 2026 - Landing Pages para Negocios Locais
+  </footer>
+
+  <a class="whatsapp-float" data-track="whatsapp_click" href="https://wa.me/556191865680?text=Ola%2C%20quero%20um%20site%20para%20minha%20barbearia.">WhatsApp</a>
+
+  <script defer src="./javascript/projects-data.js"></script>
+  <script defer src="./javascript/niche-page.js"></script>
+  <script defer src="./javascript/tracking.js"></script>
+</body>
+</html>
