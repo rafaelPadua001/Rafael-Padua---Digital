@@ -1,5 +1,5 @@
 (() => {
-  async function createMercadoPagoPreference(plan, project) {
+  async function createMercadoPagoPreference(plan, project, planId) {
     if (!project?.slug) {
       alert('Projeto nao identificado.');
       return;
@@ -13,6 +13,7 @@
       body: JSON.stringify({
         project: project.slug,
         plan,
+        planId,
       }),
     });
 
@@ -27,8 +28,8 @@
 
   window.PaduaCheckout = {
     createMercadoPagoPreference,
-    createPreference({ project, plan }) {
-      return createMercadoPagoPreference(plan, { slug: project });
+    createPreference({ project, plan, planId }) {
+      return createMercadoPagoPreference(plan, { slug: project }, planId);
     },
   };
 })();
