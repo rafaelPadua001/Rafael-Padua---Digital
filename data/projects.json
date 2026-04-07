@@ -294,6 +294,46 @@
       ]
     },
     {
+      "slug": "terapia",
+      "name": "Clinica de Terapia",
+      "niche": "clinica",
+      "demo": "/demos/terapia.html",
+      "niche_page": "/demos/terapia.html",
+      "image": "/assets/prints/terapia-demo-1.onrender.com_login.webp",
+      "billing_type": "setup_subscription",
+      "plans": [
+        {
+          "id": "principal",
+          "name": "Sistema para Clinica de Terapia",
+          "setup": 1490,
+          "monthly": 247,
+          "features": [
+            "Cadastro completo de pacientes",
+            "Gestao de responsaveis",
+            "Anamnese digital estruturada",
+            "Prontuario clinico",
+            "Organizacao de atendimentos",
+            "Interface simples e intuitiva"
+          ]
+        }
+      ],
+      "pricing": {
+        "setup": 1490,
+        "monthly": 247
+      },
+      "checkout": {
+        "setup_link": null,
+        "subscription_link": null
+      },
+      "seo_keywords": [
+        "sistema para clinica de terapia",
+        "prontuario digital terapia",
+        "gestao de pacientes terapia"
+      ],
+      "category": "clinica",
+      "featured": false
+    },
+    {
       "slug": "tatuagem",
       "name": "Landing page para estudio de tatuagem",
       "niche": "tatuagem",
