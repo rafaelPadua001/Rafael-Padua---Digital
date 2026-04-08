@@ -78,7 +78,7 @@ module.exports = async (req, res) => {
     if (setup && monthly) unitPrice = setup + monthly;
     else unitPrice = monthly || setup;
   } else {
-    unitPrice = setup;
+    unitPrice = setup || monthly;
   }
 
   if (!project || !unitPrice || isNaN(unitPrice) || unitPrice <= 0) {
@@ -93,7 +93,7 @@ module.exports = async (req, res) => {
 
   const items = [
     {
-      title: payload.title || project.name || 'Landing Page Profissional',
+      title: payload.title || selectedPlan?.name || project.name || 'Landing Page Profissional',
       quantity: 1,
       unit_price: Number(Number(unitPrice).toFixed(2)),
       currency_id: 'BRL',
