@@ -126,6 +126,15 @@ module.exports = async (req, res) => {
     },
   };
 
+  console.log('[create-preference] request', {
+    project: project.slug,
+    plan,
+    planId,
+    itemTitle: items[0].title,
+    unitPrice: items[0].unit_price,
+    baseUrl,
+  });
+
   const response = await fetch('https://api.mercadopago.com/checkout/preferences', {
     method: 'POST',
     headers: {
@@ -138,12 +147,28 @@ module.exports = async (req, res) => {
   const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
+    console.error('[create-preference] mercado pago error', {
+      status: response.status,
+      project: project?.slug,
+      plan,
+      planId,
+      details: data,
+    });
     res.status(response.status).json({
       error: 'Mercado Pago error',
       details: data,
     });
     return;
   }
+
+  console.log('[create-preference] success', {
+    project: project.slug,
+    plan,
+    planId,
+    preferenceId: data.id,
+    hasInitPoint: Boolean(data.init_point),
+    sandbox: Boolean(data.sandbox_init_point),
+  });
 
   res.status(200).json({
     id: data.id,
