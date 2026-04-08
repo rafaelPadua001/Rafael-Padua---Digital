@@ -49,6 +49,15 @@ function getBaseUrl(req) {
   return '';
 }
 
+function isHttpsUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method Not Allowed' });
@@ -75,8 +84,7 @@ module.exports = async (req, res) => {
   let unitPrice = null;
 
   if (plan === 'subscription') {
-    if (setup && monthly) unitPrice = setup + monthly;
-    else unitPrice = monthly || setup;
+    unitPrice = monthly;
   } else {
     unitPrice = setup || monthly;
   }
@@ -91,47 +99,48 @@ module.exports = async (req, res) => {
     return;
   }
 
+  const normalizedPrice = Number(Number(unitPrice).toFixed(2));
+  const itemTitle = payload.title || selectedPlan?.name || project.name || 'Plano selecionado';
+
   const items = [
     {
-      title: payload.title || selectedPlan?.name || project.name || 'Landing Page Profissional',
+      title: itemTitle,
       quantity: 1,
-      unit_price: Number(Number(unitPrice).toFixed(2)),
       currency_id: 'BRL',
+      unit_price: normalizedPrice,
     },
   ];
 
 
   const baseUrl = getBaseUrl(req);
-  const notificationUrl = baseUrl
+  const notificationUrl = isHttpsUrl(baseUrl)
     ? `${baseUrl}/api/payments-webhook`
     : undefined;
 
   const preference = {
     items,
-    notification_url: notificationUrl,
     back_urls: baseUrl
       ? {
-          success: `${baseUrl}/checkout-success.html`,
-          failure: `${baseUrl}/checkout-success.html`,
-          pending: `${baseUrl}/checkout-success.html`,
+          success: `${baseUrl}/checkout-success.html?status=success`,
+          failure: `${baseUrl}/checkout-success.html?status=failure`,
+          pending: `${baseUrl}/checkout-success.html?status=pending`,
         }
       : undefined,
     auto_return: 'approved',
-    external_reference: project.slug,
-    metadata: {
-      demo: project.slug,
-      project_name: project.name || '',
-      plan,
-      plan_id: planId || '',
-    },
   };
+
+  if (notificationUrl) {
+    preference.notification_url = notificationUrl;
+  }
+
+  console.log('Preference criada:', preference);
 
   console.log('[create-preference] request', {
     project: project.slug,
     plan,
     planId,
-    itemTitle: items[0].title,
-    unitPrice: items[0].unit_price,
+    itemTitle,
+    unitPrice: normalizedPrice,
     baseUrl,
   });
 
