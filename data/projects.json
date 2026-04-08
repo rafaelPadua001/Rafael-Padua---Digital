@@ -50,8 +50,8 @@
         }
       ],
       "pricing": {
-        "setup": 490,
-        "monthly": 79
+        "setup": 890,
+        "monthly": null
       },
       "checkout": {
         "setup_link": "LINK_MERCADOPAGO_PIZZARIA_SETUP",
@@ -303,23 +303,47 @@
       "billing_type": "setup_subscription",
       "plans": [
         {
-          "id": "principal",
-          "name": "Sistema para Clinica de Terapia",
-          "setup": 1490,
-          "monthly": 247,
+          "id": "basic",
+          "name": "Plano Basico",
+          "setup": null,
+          "monthly": 59,
           "features": [
-            "Cadastro completo de pacientes",
+            "Cadastro de pacientes",
             "Gestao de responsaveis",
-            "Anamnese digital estruturada",
+            "Anamnese digital",
+            "Suporte basico"
+          ]
+        },
+        {
+          "id": "pro",
+          "name": "Plano Profissional",
+          "badge": "Mais vendido",
+          "setup": null,
+          "monthly": 97,
+          "features": [
+            "Tudo do basico",
             "Prontuario clinico",
+            "Historico completo",
             "Organizacao de atendimentos",
-            "Interface simples e intuitiva"
+            "Suporte prioritario"
+          ]
+        },
+        {
+          "id": "premium",
+          "name": "Plano Premium",
+          "setup": null,
+          "monthly": 147,
+          "features": [
+            "Tudo do profissional",
+            "Personalizacao basica",
+            "Suporte dedicado",
+            "Atualizacoes prioritarias"
           ]
         }
       ],
       "pricing": {
-        "setup": 1490,
-        "monthly": 247
+        "setup": null,
+        "monthly": 59
       },
       "checkout": {
         "setup_link": null,

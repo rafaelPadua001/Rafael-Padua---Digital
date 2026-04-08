@@ -16,6 +16,12 @@
     `;
   }
 
+  function getPlanPricing(project, plan) {
+    const setup = plan?.setup ?? project?.pricing?.setup ?? null;
+    const monthly = plan?.monthly ?? project?.pricing?.monthly ?? null;
+    return { setup, monthly };
+  }
+
   function createConversionSection(project) {
     const nicheMap = {
       pizzaria: 'pizzarias',
@@ -81,7 +87,7 @@
       card.innerHTML = `
         ${plan.badge ? `<span class="plan-badge">${plan.badge}</span>` : ''}
         <h3>${plan.name}</h3>
-        <p class="plan-setup">Setup: R$ ${plan.setup}</p>
+        <p class="plan-setup">${plan.setup ? `Setup: R$ ${plan.setup}` : 'Setup: Sem taxa de setup'}</p>
         <p class="plan-monthly">${plan.monthly ? `Mensalidade: R$ ${plan.monthly}` : 'Mensalidade: Sem mensalidade'}</p>
         <button class="plan-cta" type="button">Solicitar demonstracao</button>
       `;
@@ -99,12 +105,19 @@
     const plans = Array.isArray(project.plans) ? project.plans : [];
     const plan = plans.find((p) => p.id === planId) || plans[0] || null;
 
-    const setup = plan?.setup ?? project?.pricing?.setup ?? 0;
-    const monthly = plan?.monthly ?? project?.pricing?.monthly ?? null;
+    const { setup, monthly } = getPlanPricing(project, plan);
 
 
     if (setupEl) {
-      setupEl.textContent = `Setup: R$ ${setup}`;
+      if (setup) {
+        setupEl.textContent = `Setup: R$ ${setup}`;
+        setupEl.style.display = '';
+      } else if (monthly) {
+        setupEl.textContent = `Plano: R$ ${monthly} / mes`;
+        setupEl.style.display = '';
+      } else {
+        setupEl.style.display = 'none';
+      }
     }
 
     if (monthlyEl) {
@@ -179,9 +192,12 @@
     legacyBuyButtons.forEach((button) => {
       button.addEventListener('click', (event) => {
         event.preventDefault();
+        event.stopImmediatePropagation();
         event.stopPropagation();
         if (!window.PaduaCheckout) return;
-        window.PaduaCheckout.createMercadoPagoPreference('setup', project, activePlanId);
+        const buttonPlan = button.dataset.plan || 'setup';
+        const buttonPlanId = button.dataset.planId || activePlanId;
+        window.PaduaCheckout.createMercadoPagoPreference(buttonPlan, project, buttonPlanId);
       });
     });
   });
